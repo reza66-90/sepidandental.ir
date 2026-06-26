@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+<title>مقالات دندانپزشکی سپیدان | ایمپلنت، لمینت، کامپوزیت و بلیچینگ</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+<meta name="description" content="مقالات آموزشی دندانپزشکی سپیدان درباره ایمپلنت، لمینت، کامپوزیت، بلیچینگ و سلامت دهان و دندان">
+
+<meta name="robots" content="index,follow">
+
+<link rel="canonical" href="https://sepidandental.ir/blog/">
+
+<meta property="og:title" content="مقالات دندانپزشکی سپیدان">
+<meta property="og:description" content="مقالات آموزشی ایمپلنت، لمینت، کامپوزیت و بلیچینگ">
+<meta property="og:url" content="https://sepidandental.ir/blog/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://sepidandental.ir/images/cover.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<h1 style="text-align:center;margin-top:40px;">
+مقالات آموزشی
+</h1>
+
+<!-- سرچ -->
+<div style="text-align:center;margin:20px;">
+<!-- فیلتر دسته‌بندی -->
+<div style="text-align:center;margin:10px;">
+  <button onclick="filterCategory('همه')" style="margin:5px;padding:8px 15px;">همه</button>
+  <button onclick="filterCategory('ایمپلنت')" style="margin:5px;padding:8px 15px;">ایمپلنت</button>
+  <button onclick="filterCategory('درمان')" style="margin:5px;padding:8px 15px;">درمان</button>
+<button onclick="filterCategory('بلیچینگ')" style="margin:5px;padding:8px 15px;">بلیچینگ</button>
+</div>
+  <input id="search" placeholder="جستجوی مقاله..."
+  style="padding:10px;width:250px;border-radius:10px;border:1px solid #ccc;">
+</div>
+
+<!-- لیست مقالات -->
+<div id="blog-container"
+style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:40px;">
+</div>
+
+<!-- دیتا -->
+<script src="../data/posts.js"></script>
+
+
+<script>
+let currentCategory = "همه";
+let currentSearch = "";
+
+const allPosts = posts;
+
+console.log(posts);
+
+function render() {
+
+  const container = document.getElementById("blog-container");
+  container.innerHTML = "";
+
+  let filtered = allPosts;
+
+  // فیلتر دسته‌بندی
+  if (currentCategory !== "همه") {
+    filtered = filtered.filter(p =>
+      p.category.includes(currentCategory)
+    );
+  }
+
+  // سرچ
+  if (currentSearch) {
+    filtered = filtered.filter(p =>
+      p.title.includes(currentSearch) ||
+      p.desc.includes(currentSearch) ||
+      p.category.includes(currentSearch)
+    );
+  }
+
+  filtered.forEach(post => {
+    container.innerHTML += `
+      <a href="${post.url}" style="text-decoration:none;color:black;border:1px solid #eee;padding:15px;border-radius:15px;display:block;">
+        <img src="../${post.image}" style="width:100%;height:180px;object-fit:cover;border-radius:12px;">
+        <h3>${post.title}</h3>
+        <p>${post.desc}</p>
+        <span style="color:blue;">${post.category}</span>
+      </a>
+    `;
+  });
+}
+// دسته‌بندی
+function filterCategory(cat) {
+  currentCategory = cat;
+  render();
+}
+
+// سرچ
+document.getElementById("search").addEventListener("input", (e) => {
+  currentSearch = e.target.value;
+  render();
+});
+
+// اولین اجرا
+render();
+</script>
+
+</body>
+</html>

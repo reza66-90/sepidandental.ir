@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sepidandental.ir/sitemap.xml
