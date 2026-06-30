@@ -27,6 +27,7 @@
   <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/faq.css">
   <style>
    :root{ --navy:#0B2D5C; --gold:#a3831a; --cream:#f1f7f8; } html{scroll-behavior:smooth;} body{ font-family:Vazirmatn; background:linear-gradient(135deg,#0b4f8c,#1e81ce,#7cc7ff); overflow-x:hidden; } .glass{ background:rgba(255,255,255,.12); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.15); } .btn-gold{ background:linear-gradient(135deg,#C9A227,#E4C75B); padding:12px 28px; border-radius:14px; font-weight:700; transition:.3s; } .btn-gold:hover{transform:translateY(-3px);} .section-title{ font-size:42px; font-weight:900; color:var(--navy); } .card{ background:white; border-radius:24px; padding:24px; box-shadow:0 15px 40px rgba(0,0,0,.08); transition:.3s; } .card:hover{transform:translateY(-8px);} html, body { height: 100%; } .swiper { height: 100vh; } .swiper-wrapper, .swiper-slide {height: 100%;} .swiper-slide img { width: 100%; height: 100%; object-fit: cover; display: block; } .hero-overlay{ background:rgba(0,0,0,.45); }
   </style>
@@ -265,11 +266,11 @@
         <p class="text-gray-500 mt-2">متخصص دندانپزشکی</p>
       </div>
       <div class="card text-center">
-      <img src="images/clinic/dr-salimzadeh-dentist-tehran.jpg"
-     class="w-full h-72 object-cover rounded-xl mb-5"
-     alt="خانم دکتر سلیم زاده">
-     <h3 class="font-black text-xl">خانم دکتر سلیم زاده</h3>
-      <p class="text-gray-500 mt-2">متخصص دندانپزشکی</p>
+        <img src="images/clinic/dr-salimzadeh-dentist-tehran.jpg"
+             class="w-full h-72 object-cover rounded-xl mb-5"
+             alt="دکتر سلیم زاده">
+        <h3 class="font-black text-xl">خانم دکتر سلیم زاده</h3>
+        <p class="text-gray-500 mt-2">متخصص دندانپزشکی</p>
       </div>
 
       <div class="card text-center">
@@ -331,6 +332,109 @@
     </div>
    </div>
   </section>
+<section id="faq" class="py-20 bg-white">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<h2 class="section-title text-center mb-12">
+سوالات متداول
+</h2>
+
+<div class="grid lg:grid-cols-3 gap-8">
+
+    <!-- FAQ -->
+    <div class="lg:col-span-2 space-y-4">
+
+        <div class="card p-0 overflow-hidden">
+            <button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">
+                آیا ایمپلنت درد دارد؟
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                ایمپلنت با بی‌حسی موضعی انجام می‌شود و درد قابل توجهی ندارد.
+            </div>
+        </div>
+
+        <div class="card p-0 overflow-hidden">
+            <button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">
+                طول عمر لمینت چقدر است؟
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                معمولاً بین ۱۰ تا ۱۵ سال و در صورت مراقبت حتی بیشتر.
+            </div>
+        </div>
+
+        <div class="card p-0 overflow-hidden">
+            <button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">
+                هزینه ایمپلنت چگونه محاسبه می‌شود؟
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                به برند ایمپلنت، تعداد واحدها و شرایط استخوان بستگی دارد.
+            </div>
+        </div>
+
+        <div class="card p-0 overflow-hidden">
+            <button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">
+                آیا امکان پرداخت اقساطی وجود دارد؟
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-content hidden px-5 pb-5 text-gray-600">
+                بله، برای برخی خدمات شرایط پرداخت اقساطی فراهم است.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- فرم ارسال سوال -->
+    <div>
+
+        <div class="card sticky top-24">
+
+            <h3 class="text-xl font-black text-center mb-5 text-[#0B2D5C]">
+                سوالی دارید؟
+            </h3>
+
+            <p class="text-center text-gray-500 mb-5 text-sm">
+                اگر پاسخ خود را پیدا نکردید، سوالتان را برای ما ارسال کنید.
+            </p>
+
+            <form onsubmit="sendQuestion(event)" class="space-y-3">
+
+                <input
+                id="qname"
+                type="text"
+                placeholder="نام (اختیاری)"
+                class="w-full border rounded-xl p-3">
+
+                <textarea
+                id="question"
+                rows="4"
+                placeholder="سوال خود را بنویسید..."
+                class="w-full border rounded-xl p-3"></textarea>
+
+                <button
+                class="btn-gold w-full"
+                type="submit">
+                ارسال سوال
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
   <section class="py-24 bg-slate-50">
    <div class="max-w-7xl mx-auto px-6">
     <h2 class="section-title text-center mb-16">
@@ -470,13 +574,13 @@
     <img class="w-[60px] h-[60px] object-contain" src="images/bale.png">
   </a>
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="data/posts.js"></script>
-
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/faq.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
   new Swiper(".mySwiper", {
     loop: true,
     effect: "fade",
@@ -510,8 +614,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
-</script>
-<script>
 function sendToWhatsApp(e) {
   e.preventDefault();
 
@@ -528,6 +630,43 @@ function sendToWhatsApp(e) {
   const url = `https://wa.me/989127933934?text=${encodeURIComponent(text)}`;
 
   window.open(url, "_blank");
+}
+
+document.querySelectorAll(".faq-btn").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const content = btn.nextElementSibling;
+    const icon = btn.querySelector("i");
+
+    content.classList.toggle("hidden");
+
+    icon.classList.toggle("fa-plus");
+    icon.classList.toggle("fa-minus");
+
+  });
+
+});
+function sendQuestion(e){
+
+    e.preventDefault();
+
+    const name = document.getElementById("qname").value || "بدون نام";
+    const question = document.getElementById("qtext").value;
+
+    const text =
+`❓ سوال جدید سایت سپیدان
+
+👤 نام:
+${name}
+
+📝 سوال:
+${question}`;
+
+    window.open(
+      "https://wa.me/989127933934?text="+encodeURIComponent(text),
+      "_blank"
+    );
 }
 </script>
 </body>
