@@ -11,7 +11,7 @@ serverTimestamp
 } from "./firebase.js";
 
 const container = document.getElementById("questions");
-
+console.log("admin.js loaded");
 async function loadQuestions() {
 
 const q = query(
@@ -20,7 +20,7 @@ orderBy("createdAt","desc")
 );
 
 const snapshot = await getDocs(q);
-
+console.log(snapshot.size);
 container.innerHTML = "";
 
 snapshot.forEach(item=>{
