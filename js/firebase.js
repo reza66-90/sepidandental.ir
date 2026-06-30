@@ -10,7 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBh2KCVVifM5Gzz9NE5A7OnnyS5c2RTsA",
+  apiKey: "PASTE_REAL_API_KEY_HERE",
   authDomain: "sepidan-d192d.firebaseapp.com",
   projectId: "sepidan-d192d",
   storageBucket: "sepidan-d192d.firebasestorage.app",
@@ -19,10 +19,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export {
-  db,
   collection,
   addDoc,
   getDocs,
