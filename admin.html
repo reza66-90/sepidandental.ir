@@ -1,55 +1,104 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
-<title>پنل مدیریت مقالات</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پنل مدیریت سوالات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:tahoma;background:#f5f5f5;padding:40px}
-input,textarea{
-  width:100%;padding:10px;margin:10px 0;border-radius:10px;border:1px solid #ccc;
+
+body{
+font-family:Vazirmatn;
+background:#f5f7fb;
+margin:0;
+padding:40px;
 }
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+h1{
+text-align:center;
+margin-bottom:30px;
+}
+
+.item{
+background:#fff;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.meta{
+font-size:13px;
+color:#777;
+margin-top:10px;
+}
+
+textarea{
+width:100%;
+height:100px;
+padding:10px;
+margin-top:15px;
+border-radius:10px;
+border:1px solid #ddd;
+font-family:inherit;
+resize:vertical;
+}
+
+.actions{
+margin-top:15px;
+display:flex;
+gap:10px;
+}
+
 button{
-  padding:12px 20px;background:#0b2d5c;color:white;border:none;border-radius:10px;
+border:none;
+padding:10px 20px;
+border-radius:10px;
+cursor:pointer;
+font-family:inherit;
 }
+
+.approve{
+background:#1e88e5;
+color:white;
+}
+
+.answer{
+background:#2e7d32;
+color:white;
+}
+
+.delete{
+background:#d32f2f;
+color:white;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<h1>➕ افزودن مقاله جدید</h1>
+<div class="container">
 
-<input id="title" placeholder="عنوان مقاله">
-<input id="url" placeholder="لینک مقاله (articles/test.html)">
-<input id="image" placeholder="آدرس عکس">
-<input id="category" placeholder="دسته‌بندی">
-<textarea id="desc" placeholder="توضیحات"></textarea>
+<h1>
+مدیریت سوالات کاربران
+</h1>
 
-<button onclick="savePost()">ذخیره مقاله</button>
+<div id="questions"></div>
 
-<script>
-function savePost(){
+</div>
 
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-  const newPost = {
-    title: document.getElementById("title").value,
-    url: document.getElementById("url").value,
-    image: document.getElementById("image").value,
-    category: document.getElementById("category").value,
-    desc: document.getElementById("desc").value,
-    date: new Date().toISOString()
-  };
-
-  posts.unshift(newPost);
-
-  localStorage.setItem("posts", JSON.stringify(posts));
-
-  alert("مقاله ذخیره شد");
-
-  location.reload();
-}
-</script>
+<script type="module" src="js/admin.js"></script>
 
 </body>
 </html>

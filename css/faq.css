@@ -1,0 +1,108 @@
+/* ===== فرم ثبت سوال ===== */
+
+#faqForm{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+#faqForm input,
+#faqForm textarea{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-family:Vazirmatn;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+#faqForm input:focus,
+#faqForm textarea:focus{
+    border-color:#0B2D5C;
+    box-shadow:0 0 0 3px rgba(11,45,92,.12);
+}
+
+#faqForm textarea{
+    height:110px;
+    resize:none;
+}
+
+#faqForm button{
+    background:#C9A227;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    cursor:pointer;
+    font-family:Vazirmatn;
+    font-weight:bold;
+    transition:.3s;
+}
+
+#faqForm button:hover{
+    background:#b48d15;
+}
+
+
+/* ===== لیست سوالات ===== */
+
+#faqList{
+    max-height:600px;
+    overflow-y:auto;
+    padding-right:5px;
+}
+
+.faq-item{
+    background:#fff;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    border:1px solid #ececec;
+}
+
+.faq-question{
+    font-size:17px;
+    font-weight:700;
+    color:#0B2D5C;
+    margin-bottom:10px;
+}
+
+.faq-answer{
+    margin-top:15px;
+    padding:15px;
+    border-right:4px solid #C9A227;
+    background:#f8fafc;
+    border-radius:12px;
+}
+
+.faq-answer b{
+    display:block;
+    margin-bottom:8px;
+    color:#0B2D5C;
+}
+
+.faq-meta{
+    font-size:12px;
+    color:#888;
+    margin-top:8px;
+}
+
+
+/* ===== اسکرول ===== */
+
+#faqList::-webkit-scrollbar{
+    width:8px;
+}
+
+#faqList::-webkit-scrollbar-thumb{
+    background:#C9A227;
+    border-radius:20px;
+}
+
+#faqList::-webkit-scrollbar-track{
+    background:#f2f2f2;
+}
