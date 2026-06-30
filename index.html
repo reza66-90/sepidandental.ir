@@ -404,7 +404,7 @@
                 اگر پاسخ خود را پیدا نکردید، سوالتان را برای ما ارسال کنید.
             </p>
 
-            <form onsubmit="sendQuestion(event)" class="space-y-3">
+            <form id="faqForm" class="space-y-3">
 
                 <input
                 id="faqName"
@@ -478,9 +478,7 @@
     <p class="mb-10 text-lg">
       برای دریافت مشاوره رایگان فرم زیر را تکمیل کنید
     </p>
-
-    <form class="grid gap-5" onsubmit="sendToWhatsApp(event)">
-      
+     
       <input
         class="p-4 rounded-xl text-black"
         type="text"
@@ -645,14 +643,6 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
   });
 
 });
-function sendQuestion(e){
-
-    e.preventDefault();
-
-    const name = document.getElementById("qname").value || "بدون نام";
-    const question = document.getElementById("qtext").value;
-
-    const text =
 `❓ سوال جدید سایت سپیدان
 
 👤 نام:
