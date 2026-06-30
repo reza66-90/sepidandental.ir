@@ -478,35 +478,32 @@
     <p class="mb-10 text-lg">
       برای دریافت مشاوره رایگان فرم زیر را تکمیل کنید
     </p>
-     
-      <input
-        class="p-4 rounded-xl text-black"
-        type="text"
-        name="name"
-        placeholder="نام و نام خانوادگی"
-        required
-      />
+     <form onsubmit="sendToWhatsApp(event)" class="grid gap-5">
+   <input
+class="p-4 rounded-xl text-black"
+type="text"
+name="name"
+placeholder="نام و نام خانوادگی"
+required
+<input
+class="p-4 rounded-xl text-black"
+type="tel"
+name="phone"
+placeholder="شماره تماس"
+required
+/>
+<textarea
+class="p-4 rounded-xl text-black"
+name="message"
+rows="5"
+placeholder="توضیحات"
+></textarea>
 
-      <input
-        class="p-4 rounded-xl text-black"
-        type="tel"
-        name="phone"
-        placeholder="شماره تماس"
-        required
-      />
+<button class="btn-gold text-black" type="submit">
+ثبت درخواست
+</button>
 
-      <textarea
-        class="p-4 rounded-xl text-black"
-        name="message"
-        placeholder="توضیحات"
-        rows="5"
-      ></textarea>
-
-      <button class="btn-gold text-black" type="submit">
-        ثبت درخواست
-      </button>
-
-    </form>
+</form>
   </div>
 </section>
   <section class="py-24 bg-white" id="contact">
