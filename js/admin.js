@@ -9,9 +9,11 @@ query,
 orderBy,
 serverTimestamp
 } from "./firebase.js";
-
+const container = document.getElementById("questions");
+console.log(container);
 const container = document.getElementById("questions");
 console.log("admin.js loaded");
+
 async function loadQuestions() {
 
 const q = query(
@@ -80,7 +82,7 @@ approved:true
 });
 
 loadQuestions();
-
+console.log("Docs:", snapshot.size);
 };
 
 answerBtn.onclick = async()=>{
