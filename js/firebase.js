@@ -20,6 +20,7 @@ const firebaseConfig = {
   messagingSenderId: "688114065376",
   appId: "1:688114065376:web:fc4b4b5a120f0cc8a19585"
 };
+
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
@@ -32,5 +33,5 @@ export {
   doc,
   query,
   orderBy,
-  serverTimestamp
+ serverTimestamp
 };
