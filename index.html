@@ -519,11 +519,6 @@
          placeholder="شماره تماس"
          required />
 
-  <textarea class="p-4 rounded-xl text-black"
-            name="message"
-            rows="5"
-            placeholder="توضیحات"></textarea>
-
   <button class="btn-gold text-black" type="submit">
     ثبت درخواست
   </button>
@@ -577,6 +572,7 @@
   </footer>
 <!-- دکمه های شناور -->
 <div class="fixed left-3 bottom-4 flex flex-col gap-3 z-50">
+
   <!-- WhatsApp -->
   <a href="https://wa.me/989127933934">
     <i class="fa-brands fa-whatsapp text-[60px] text-green-500"></i>
@@ -649,32 +645,38 @@ function sendToWhatsApp(e) {
 
   window.open(url, "_blank");
 }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".faq-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const content = btn.nextElementSibling;
+      const icon = btn.querySelector("i");
 
-document.querySelectorAll(".faq-btn").forEach(btn => {
-
-  btn.addEventListener("click", () => {
-
-    const content = btn.nextElementSibling;
-    const icon = btn.querySelector("i");
-
-    content.classList.toggle("hidden");
-
-    icon.classList.toggle("fa-plus");
-    icon.classList.toggle("fa-minus");
-
+      content.classList.toggle("hidden");
+      icon.classList.toggle("fa-plus");
+      icon.classList.toggle("fa-minus");
+    });
   });
-
 });
+</script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
 
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener("click", function () {
-      mobileMenu.classList.toggle("hidden");
+  if (!menuBtn || !mobileMenu) return;
+
+  menuBtn.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // بستن منو وقتی روی لینک کلیک شد
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
   });
 });
-
 </script>
 </body>
 </html>
