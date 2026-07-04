@@ -33,35 +33,56 @@
   </style>
  </head>
  <body>
-  <header class="fixed top-0 w-full z-50 glass">
-   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+ <header class="fixed top-0 w-full z-50 glass">
+
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- لوگو -->
     <div class="flex items-center gap-3">
-     <img class="h-16" src="images/logo.png"/>
-     <div>
-      <h2 class="font-black text-xl text-black">
-       سپیدان
-      </h2>
-     </div>
+      <img class="h-16" src="images/logo.png"/>
+      <h2 class="font-black text-xl text-black">سپیدان</h2>
     </div>
+
+    <!-- منوی دسکتاپ -->
     <nav class="hidden md:flex gap-8 text-black font-bold">
-     <a href="#services">
-      خدمات
-     </a>
-     <a href="#doctors">
-      پزشکان
-     </a>
-     <a href="#gallery">
-      گالری
-     </a>
-     <a href="#contact">
-      تماس
-     </a>
+      <a href="#services">خدمات</a>
+      <a href="#doctors">پزشکان</a>
+      <a href="#gallery">گالری</a>
+      <a href="#contact">تماس</a>
+      <a href="#tarife">تعرفه</a>
     </nav>
-    <a class="btn-gold" href="tel:02177270136">
-     رزرو نوبت
-    </a>
-   </div>
-  </header>
+
+    <!-- دکمه‌ها -->
+    <div class="flex items-center gap-3">
+
+      <a class="btn-gold hidden md:block" href="#tarife">
+        تعرفه خدمات
+      </a>
+
+      <a class="btn-gold" href="tel:02177270136">
+        رزرو نوبت
+      </a>
+
+      <!-- 🍔 همبرگر -->
+      <button id="menuBtn" class="md:hidden text-3xl font-black">
+        ☰
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- 📱 منوی موبایل -->
+  <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-xl p-6 text-right">
+
+    <a class="block py-3 border-b" href="#services">خدمات</a>
+    <a class="block py-3 border-b" href="#doctors">پزشکان</a>
+    <a class="block py-3 border-b" href="#contact">تماس</a>
+    <a class="block py-3 border-b" href="#tarife">تعرفه خدمات</a>
+
+  </div>
+
+</header>
   <section>
    <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -198,28 +219,19 @@
    <div id="home-blog-container" class="grid md:grid-cols-3 gap-8">
 </div>
   </section>
-<section class="py-24 bg-white">
+<section class="py-24 bg-white" id="tarife">
   <div class="max-w-7xl mx-auto px-6 text-center">
 
     <h2 class="section-title mb-10">
       تعرفه خدمات دندانپزشکی
     </h2>
-
-    <p class="text-gray-600 mb-8">
-      برای مشاهده لیست کامل قیمت‌ها، تصویر زیر را ببینید
-    </p>
-
-    <img 
-      src="images/tarife.jpg"
-      alt="تعرفه دندانپزشکی سپیدان"
-      class="w-full md:w-2/3 mx-auto rounded-2xl shadow-xl"
-    >
-
-    <a href="images/tarife.png" target="_blank" class="btn-gold mt-8 inline-block">
-      مشاهده در اندازه بزرگ
-    </a>
-
-  </div>
+<a href="images/tarife.png" target="_blank">
+  <img
+    src="images/tarife.png"
+    class="w-80 md:w-1/2 mx-auto rounded-2xl shadow-xl cursor-pointer"
+    alt="تعرفه خدمات"
+  />
+</a>
 </section>
   <section class="py-24 bg-slate-50">
    <div class="max-w-7xl mx-auto px-6">
@@ -493,30 +505,28 @@
     <p class="mb-10 text-lg">
       برای دریافت مشاوره رایگان فرم زیر را تکمیل کنید
     </p>
-     <form onsubmit="sendToWhatsApp(event)" class="grid gap-5">
-   <input
-class="p-4 rounded-xl text-black"
-type="text"
-name="name"
-placeholder="نام و نام خانوادگی"
-required
-<input
-class="p-4 rounded-xl text-black"
-type="tel"
-name="phone"
-placeholder="شماره تماس"
-required
-/>
-<textarea
-class="p-4 rounded-xl text-black"
-name="message"
-rows="5"
-placeholder="توضیحات"
-></textarea>
+ <form onsubmit="sendToWhatsApp(event)" class="grid gap-5">
 
-<button class="btn-gold text-black" type="submit">
-ثبت درخواست
-</button>
+  <input class="p-4 rounded-xl text-black"
+         type="text"
+         name="name"
+         placeholder="نام و نام خانوادگی"
+         required />
+
+  <input class="p-4 rounded-xl text-black"
+         type="tel"
+         name="phone"
+         placeholder="شماره تماس"
+         required />
+
+  <textarea class="p-4 rounded-xl text-black"
+            name="message"
+            rows="5"
+            placeholder="توضیحات"></textarea>
+
+  <button class="btn-gold text-black" type="submit">
+    ثبت درخواست
+  </button>
 
 </form>
   </div>
@@ -654,6 +664,16 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
 
   });
 
+});
+document.querySelectorAll(".faq-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const content = btn.nextElementSibling;
+    const icon = btn.querySelector("i");
+
+    content.classList.toggle("hidden");
+    icon.classList.toggle("fa-plus");
+    icon.classList.toggle("fa-minus");
+  });
 });
 
 </script>
