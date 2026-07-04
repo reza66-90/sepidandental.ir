@@ -665,14 +665,13 @@ document.querySelectorAll(".faq-btn").forEach(btn => {
   });
 
 });
-document.querySelectorAll(".faq-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const content = btn.nextElementSibling;
-    const icon = btn.querySelector("i");
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-    content.classList.toggle("hidden");
-    icon.classList.toggle("fa-plus");
-    icon.classList.toggle("fa-minus");
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
   });
 });
 
