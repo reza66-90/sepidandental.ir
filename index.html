@@ -38,9 +38,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
 .swiper {
-    height: 650px !important;
+    height: 450px;
 }
 
+@media(max-width:768px){
+.swiper {
+    height:300px !important;
+}
+}
 .swiper-slide img{
     transition:1s;
 }
@@ -88,7 +93,7 @@ section {
 
  </head>
  <body>
- <header class="fixed top-0 w-full z-70 glass">
+ <header class="fixed top-0 w-full z-[70] glass">
 
   <div class="max-w-7xl mx-auto px-10 py-2 flex items-center justify-between">
 
@@ -148,11 +153,11 @@ section {
 <img 
 src="images/logo.png"
 alt="لوگوی دندانپزشکی سپیدان"
-class="h-40 md:h-48 mx-auto mb-8 object-contain"
+class="h-28 md:h-48 mx-auto mb-6 object-contain"
 >
 
 <!-- باکس متن -->
-<div class="relative overflow-hidden rounded-[40px] p-10
+<div class="relative overflow-hidden rounded-[40px]p-6 md:p-10
 bg-gradient-to-br from-[#071A36] via-[#0B2D5C] to-[#164B8A]
 border border-[#D4AF37]/60
 shadow-[0_30px_80px_rgba(0,0,0,.45)]
@@ -719,22 +724,25 @@ alt="سپیدان">
    </div>
   </footer>
 <!-- دکمه های شناور -->
-<div class="fixed left-3 bottom-4 flex flex-col gap-3 z-50">
+<div class="fixed left-3 bottom-4 flex flex-col gap-3 z-[999]">
+
 <a href="https://wa.me/989127933934">
-    <img src="images/whatsapp.png"
-class="w-[60px] h-[60px] object-contain"
-alt="">
+<img src="/images/whatsapp.png"
+class="w-14 h-14 object-contain"
+alt="واتساپ">
 </a>
 
-  <!-- Eitaa -->
-  <a href="https://eitaa.com/sepidanclinic">
-    <img class="w-[60px] h-[60px] object-contain" src="images/eitaa.png">
-  </a>
+<a href="https://eitaa.com/sepidanclinic">
+<img src="/images/eitaa.png"
+class="w-14 h-14 object-contain">
+</a>
 
-  <!-- Bale -->
-  <a href="https://ble.ir/sepidanclinic">
-    <img class="w-[60px] h-[60px] object-contain" src="images/bale.png">
-  </a>
+<a href="https://ble.ir/sepidanclinic">
+<img src="/images/bale.png"
+class="w-14 h-14 object-contain">
+</a>
+
+</div>
 </div>
  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
