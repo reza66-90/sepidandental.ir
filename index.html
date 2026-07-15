@@ -354,18 +354,23 @@ alt="سپیدان">
 </div>
   </section>
 <section class="py-24 bg-white" id="tarife">
-  <div class="max-w-7xl mx-auto px-6 text-center">
 
-    <h2 class="section-title mb-10">
-      تعرفه خدمات دندانپزشکی
-    </h2>
+<div class="max-w-7xl mx-auto px-6 text-center">
+
+<h2 class="section-title mb-10">
+تعرفه خدمات دندانپزشکی
+</h2>
+
 <a href="images/tarife.png" target="_blank">
-  <img
-    src="images/tarife.png"
-    class="w-80 md:w-1/2 mx-auto rounded-2xl shadow-xl cursor-pointer"
-    alt="تعرفه خدمات"
-  />
+<img
+src="images/tarife.png"
+class="w-80 md:w-1/2 mx-auto rounded-2xl shadow-xl cursor-pointer"
+alt="تعرفه خدمات"
+/>
 </a>
+
+</div>
+
 </section>
   <section class="py-24 bg-slate-50">
    <div class="max-w-7xl mx-auto px-6">
@@ -482,17 +487,20 @@ alt="سپیدان">
             </h3>
 
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-
    <img src="images/gallery1.png"
      class="gallery-img w-full h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition duration-300 cursor-pointer">
-
   <img src="images/gallery2.png"
      class="gallery-img w-full h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition duration-300 cursor-pointer">
 
    <img src="images/gallery3.png"
      class="gallery-img w-full h-40 object-cover rounded-xl shadow-lg hover:scale-105 transition duration-300 cursor-pointer">
 </div>
-  </section>
+
+</div>
+
+</div>
+
+</section>
 <section id="faq" class="py-20 bg-white">
 
 <div class="max-w-7xl mx-auto px-6">
@@ -745,13 +753,20 @@ alt="سپیدان">
 </a>
 
 </div>
- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="data/posts.js"></script>
+
 <script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/faq.js"></script>
+
+
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
+
+
+  // اسلایدر
   new Swiper(".mySwiper", {
     loop: true,
     effect: "fade",
@@ -765,119 +780,172 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
+  // AOS
   AOS.init({
     duration: 1000,
     once: true
   });
 
+
+
+  // نمایش مقالات
   const container = document.getElementById("home-blog-container");
-  console.log("تعداد مقالات:", posts.length);
+
   if (container && typeof posts !== "undefined") {
 
     container.innerHTML = "";
 
     posts.forEach(post => {
+
       container.innerHTML += `
         <a href="${post.url}" class="card block">
-          <img src="${post.image}" class="rounded-2xl mb-5 w-full h-56 object-cover">
-          <h3 class="font-black text-xl mb-3">${post.title}</h3>
-          <p class="text-gray-600">${post.desc}</p>
+
+          <img 
+          src="${post.image}" 
+          class="rounded-2xl mb-5 w-full h-56 object-cover"
+          alt="${post.title}">
+
+          <h3 class="font-black text-xl mb-3">
+          ${post.title}
+          </h3>
+
+          <p class="text-gray-600">
+          ${post.desc}
+          </p>
+
         </a>
       `;
+
     });
-}
+
+  }
 
 
-function sendToWhatsApp(e) {
-  e.preventDefault();
 
-  const name = document.querySelector('input[name="name"]').value;
-  const phone = document.querySelector('input[name="phone"]').value;
-  const desc = document.querySelector('textarea[name="message"]').value;
+  // منوی موبایل
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-  const text = `📥 درخواست جدید
 
-👤 نام: ${name}
-📞 تلفن: ${phone}
-📝 توضیحات: ${desc}`;
+  if(menuBtn && mobileMenu){
 
-  const url = `https://wa.me/989127933934?text=${encodeURIComponent(text)}`;
+    menuBtn.addEventListener("click", function(){
 
-  window.open(url, "_blank");
-}
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+      mobileMenu.classList.toggle("hidden");
 
+    });
+
+
+    mobileMenu.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", function(){
+
+        mobileMenu.classList.add("hidden");
+
+      });
+
+    });
+
+  }
+
+
+
+
+  // FAQ
   document.querySelectorAll(".faq-btn").forEach(btn => {
 
-    btn.addEventListener("click", () => {
+
+    btn.addEventListener("click", function(){
+
 
       const content = btn.nextElementSibling;
       const icon = btn.querySelector("i");
 
+
       content.classList.toggle("hidden");
+
       icon.classList.toggle("fa-plus");
       icon.classList.toggle("fa-minus");
 
+
     });
 
+
   });
 
-});
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
 
-  if (!menuBtn || !mobileMenu) return;
 
-  menuBtn.addEventListener("click", function () {
-    mobileMenu.classList.toggle("hidden");
-  });
+  // گالری عکس
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
 
-  // بستن منو وقتی روی لینک کلیک شد
-  mobileMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-    });
-  });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
+  if(modal && modalImg){
+
 
     document.querySelectorAll(".gallery-img").forEach(img => {
 
-        img.addEventListener("click", function () {
 
-            modalImg.src = this.src;
+      img.addEventListener("click", function(){
 
-            modal.classList.remove("hidden");
-            modal.classList.add("flex");
 
-        });
+        modalImg.src = this.src;
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+
+
+      });
+
+
+    });
+
+
+
+    modal.addEventListener("click", function(){
+
+
+      modal.classList.remove("flex");
+      modal.classList.add("hidden");
+
 
     });
 
-    modal.addEventListener("click", function () {
 
-        modal.classList.remove("flex");
-        modal.classList.add("hidden");
+  }
 
-    });
+
 
 });
-</script>
-<div id="imageModal"
-     class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[9999]">
 
-    <img id="modalImage"
-         class="max-w-[90%] max-h-[90vh] rounded-2xl shadow-2xl cursor-pointer">
-</div>
+
+
+
+// واتساپ
+function sendToWhatsApp(e){
+
+  e.preventDefault();
+
+  const name = document.querySelector('input[name="name"]').value;
+
+  const phone = document.querySelector('input[name="phone"]').value;
+
+  const text = `📥 درخواست جدید
+
+👤 نام: ${name}
+
+📞 تلفن: ${phone}`;
+
+
+  const url = `https://wa.me/989127933934?text=${encodeURIComponent(text)}`;
+
+
+  window.open(url,"_blank");
+
+}
+
+</script>
 </body>
 </html>
 
