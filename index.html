@@ -207,9 +207,13 @@ height:300px;
 }
 
 .section-title{
+font-size:42px;
+}
 
-font-size:32px;
+@media(max-width:768px){
 
+.section-title{
+font-size:30px;
 }
 
 }
@@ -258,7 +262,7 @@ scroll-margin-top:100px;
 <body>
 
 
-<header class="fixed top-0 w-full z-[70] glass">
+<header class="fixed top-0 left-0 w-full z-[70] glass">
 
 <div class="max-w-7xl mx-auto px-10 py-2 flex items-center justify-between">
 
@@ -315,9 +319,7 @@ scroll-margin-top:100px;
 
 
 <div id="mobileMenu"
-class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-xl p-6 text-right">
-
-
+class="hidden md:hidden absolute top-full right-0 w-full bg-white shadow-xl p-6">
 <a class="block py-3 border-b" href="#services">
 خدمات
 </a>
@@ -531,7 +533,7 @@ alt="کلینیک دندانپزشکی سپیدان">
 
 src="images/clinic/sepidan-clinic-tehrannn.jpg"
 
-class="w-full h-[650px] object-cover"
+class="w-full h-[300px] md:h-[650px] object-cover"
 
 alt="دندانپزشکی سپیدان">
 
@@ -836,7 +838,7 @@ alt="تعرفه خدمات">
 
 
 
-<div class="grid grid-cols-2 gap-4 mt-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
 
 
 <div class="card text-center">
@@ -1056,13 +1058,13 @@ alt="پزشک سوم">
 
 <img
 alt="قبل لمینیت"
-class="rounded-xl w-full h-64 object-cover"
+class="rounded-xl w-full h-48 md:h-64 object-cover"
 src="images/clinic/sepidan-clinic-laminait.jpg">
 
 
 <img
 alt="بعد لمینیت"
-class="rounded-xl w-full h-64 object-cover"
+class="rounded-xl w-full h-48 md:h-64 object-cover"
 src="images/clinic/sepidan-clinic-laminait1.jpg">
 
 
@@ -1089,13 +1091,13 @@ src="images/clinic/sepidan-clinic-laminait1.jpg">
 
 <img
 alt="قبل بلیچینگ"
-class="rounded-xl w-full h-64 object-cover"
+class="rounded-xl w-full h-48 md:h-64 object-cover"
 src="images/clinic/sepidan-clinic-bilich.jpg">
 
 
 <img
 alt="بعد بلیچینگ"
-class="rounded-xl w-full h-64 object-cover"
+class="rounded-xl w-full h-48 md:h-64 object-cover"
 src="images/clinic/sepidan-clinic-bilich1.jpg">
 
 
@@ -1318,7 +1320,7 @@ class="w-full border rounded-xl p-3">
 
   <div class="max-w-4xl mx-auto px-6 text-center">
 
-    <h2 class="text-5xl font-black mb-8">
+   <h2 class="text-3xl md:text-5xl font-black mb-8">
       رزرو مشاوره
     </h2>
 
