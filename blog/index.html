@@ -2,17 +2,17 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-<title>مقالات دندانپزشکی سپیدان | آموزش، ایمپلنت، لمینت، کامپوزیت و بلیچینگ</title>
+<title>مقالات دندانپزشکی سپیدان | آموزش،ایمپلنت، لمینت، کامپوزیت و بلیچینگ</title>
 
   <link rel="stylesheet" href="../assets/css/style.css">
-<meta name="description" content="مقالات آموزشی دندانپزشکی سپیدان درباره آموزش، ایمپلنت، لمینت، کامپوزیت، بلیچینگ و سلامت دهان و دندان">
+<meta name="description" content="مقالات آموزشی دندانپزشکی سپیدان درباره ایمپلنت، لمینت، کامپوزیت، بلیچینگ و سلامت دهان و دندان">
 
 <meta name="robots" content="index,follow">
 
 <link rel="canonical" href="https://sepidandental.ir/blog/">
 
 <meta property="og:title" content="مقالات دندانپزشکی سپیدان">
-<meta property="og:description" content="مقالات آموزشی آموزش، ایمپلنت، لمینت، کامپوزیت و بلیچینگ">
+<meta property="og:description" content="مقالات آموزشی آموزش،ایمپلنت، لمینت، کامپوزیت و بلیچینگ">
 <meta property="og:url" content="https://sepidandental.ir/blog/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://sepidandental.ir/images/cover.jpg">
@@ -29,13 +29,39 @@
 <div style="text-align:center;margin:20px;">
 <!-- فیلتر دسته‌بندی -->
 <div style="text-align:center;margin:10px;">
-  <button onclick="filterCategory('همه')" style="margin:5px;padding:8px 15px;">همه</button>
-  <button onclick="filterCategory('ایمپلنت')" style="margin:5px;padding:8px 15px;">ایمپلنت</button>
-  <button onclick="filterCategory('درمان')" style="margin:5px;padding:8px 15px;">درمان</button>
-<button onclick="filterCategory('بلیچینگ')" style="margin:5px;padding:8px 15px;">بلیچینگ</button>
+
+<button onclick="filterCategory('همه')" style="margin:5px;padding:8px 15px;">
+همه
+</button>
+
+<button onclick="filterCategory('ایمپلنت')" style="margin:5px;padding:8px 15px;">
+ایمپلنت
+</button>
+
+<button onclick="filterCategory('درمان')" style="margin:5px;padding:8px 15px;">
+درمان
+</button>
+
+<button onclick="filterCategory('بلیچینگ')" style="margin:5px;padding:8px 15px;">
+بلیچینگ
+</button>
+
 <button onclick="filterCategory('آموزش')" style="margin:5px;padding:8px 15px;">
 آموزش
 </button>
+
+<button onclick="filterCategory('ارتودنسی')" style="margin:5px;padding:8px 15px;">
+ارتودنسی
+</button>
+
+<button onclick="filterCategory('دندان عقل')" style="margin:5px;padding:8px 15px;">
+دندان عقل
+</button>
+
+<button onclick="filterCategory('سلامت دهان')" style="margin:5px;padding:8px 15px;">
+سلامت دهان
+</button>
+
 </div>
   <input id="search" placeholder="جستجوی مقاله..."
   style="padding:10px;width:250px;border-radius:10px;border:1px solid #ccc;">
@@ -82,16 +108,18 @@ function render() {
     );
   }
 
-  filtered.forEach(post => {
-    container.innerHTML += `
-      <a href="${post.url}" style="text-decoration:none;color:black;border:1px solid #eee;padding:15px;border-radius:15px;display:block;">
-        <img src="../${post.image}" style="width:100%;height:180px;object-fit:cover;border-radius:12px;">
-        <h3>${post.title}</h3>
-        <p>${post.desc}</p>
-        <span style="color:blue;">${post.category}</span>
-      </a>
-    `;
-  });
+ filtered.forEach(post => {
+  console.log("نمایش:", post.title);
+
+  container.innerHTML += `
+    <a href="${post.url}" style="text-decoration:none;color:black;border:1px solid #eee;padding:15px;border-radius:15px;display:block;">
+      <img src="../${post.image}" style="width:100%;height:180px;object-fit:cover;border-radius:12px;">
+      <h3>${post.title}</h3>
+      <p>${post.desc}</p>
+      <span style="color:blue;">${post.category}</span>
+    </a>
+  `;
+});
 }
 // دسته‌بندی
 function filterCategory(cat) {
