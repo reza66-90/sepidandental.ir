@@ -58,158 +58,167 @@
 
 <style>
 
-
 :root{
 --navy:#0B2D5C;
 --gold:#a3831a;
 --cream:#f1f7f8;
 }
 
-
 html{
 scroll-behavior:smooth;
 }
 
-
 body{
 font-family:Vazirmatn;
+font-size:16px;
 background:linear-gradient(135deg,#0b4f8c,#1e81ce,#7cc7ff);
 overflow-x:hidden;
 }
 
-
+/* =========================
+   شیشه‌ای
+========================= */
 
 .glass{
-
 background:rgba(255,255,255,.12);
 backdrop-filter:blur(14px);
 border:1px solid rgba(255,255,255,.15);
-
 }
 
-
+/* =========================
+   دکمه‌ها
+========================= */
 
 .btn-gold{
-
 background:linear-gradient(135deg,#C9A227,#E4C75B);
-padding:12px 28px;
+padding:10px 24px;
 border-radius:14px;
 font-weight:700;
+font-size:15px;
 transition:.3s;
-
 }
-
 
 .btn-gold:hover{
-
 transform:translateY(-3px);
-
 }
 
-
+/* =========================
+   تیتر بخش‌ها
+========================= */
 
 .section-title{
-
-font-size:42px;
+font-size:36px;
 font-weight:900;
 color:var(--navy);
-
+line-height:1.5;
 }
 
-
+/* =========================
+   کارت‌ها
+========================= */
 
 .card{
-
 background:white;
 border-radius:24px;
-padding:24px;
+padding:22px;
 box-shadow:0 15px 40px rgba(0,0,0,.08);
 transition:.3s;
-
 }
-
 
 .card:hover{
-
-transform:translateY(-8px);
-
+transform:translateY(-6px);
 }
 
-
+/* =========================
+   اسلایدر
+========================= */
 
 .swiper{
-
 height:650px;
-
 }
-
 
 .swiper-wrapper,
 .swiper-slide{
-
 height:100%;
-
 }
 
-
-
 .swiper-slide img{
-
 width:100%;
 height:100%;
 object-fit:cover;
 display:block;
 transition:1s;
-
 }
-
-
 
 .swiper-slide-active img{
-
 transform:scale(1.05);
-
 }
-
-
 
 .swiper-pagination-bullet{
-
 background:#D4AF37;
 opacity:.5;
-
 }
 
-
-
 .swiper-pagination-bullet-active{
-
 opacity:1;
 width:28px;
 border-radius:20px;
-
 }
 
+/* =========================
+   متن عمومی
+========================= */
 
+p{
+line-height:1.9;
+}
+
+/* =========================
+   موبایل
+========================= */
 
 @media(max-width:768px){
 
+body{
+font-size:15px;
+}
+
 .swiper{
-    height:300px;
+height:300px;
 }
 
 .section-title{
-    font-size:30px;
+font-size:26px;
+line-height:1.6;
+}
+
+/* تیتر اصلی صفحه */
+h1{
+line-height:1.5;
+}
+
+/* تیتر کارت‌ها */
+h3{
+line-height:1.6;
+}
+
+/* متن‌های بزرگ */
+.text-lg{
+font-size:16px !important;
+}
+
+.text-xl{
+font-size:18px !important;
 }
 
 }
 
 .hero-overlay{
-    background:rgba(0,0,0,.45);
+background:rgba(0,0,0,.45);
 }
 
 section{
-    scroll-margin-top:100px;
+scroll-margin-top:100px;
 }
 
 </style>
