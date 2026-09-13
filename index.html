@@ -320,8 +320,8 @@ section{
 <div class="flex items-center gap-3">
 
 
-<a class="btn-gold hidden md:block" href="#tarife">
-تعرفه خدمات
+<a class="btn-gold hidden md:block" href="#" onclick="openTarife(event)">
+    تعرفه خدمات
 </a>
 
 
@@ -359,8 +359,8 @@ class="hidden md:hidden absolute top-full right-0 w-full bg-white shadow-xl p-6"
 </a>
 
 
-<a class="block py-3 border-b" href="#tarife">
-تعرفه خدمات
+<a class="block py-3 border-b" href="#" onclick="openTarife(event)">
+    تعرفه خدمات
 </a>
 
 
@@ -786,50 +786,7 @@ class="grid md:grid-cols-3 gap-8">
 
 </div>
 
-
 </section>
-
-
-
-
-
-<section class="py-24 bg-white" id="tarife">
-
-
-<div class="max-w-7xl mx-auto px-6 text-center">
-
-
-<h2 class="section-title mb-10">
-تعرفه خدمات دندانپزشکی
-</h2>
-
-
-
-<a href="images/tarife.png" target="_blank">
-
-
-<img
-
-src="images/tarife.png"
-
-class="w-80 md:w-1/2 mx-auto rounded-2xl shadow-xl cursor-pointer"
-
-alt="تعرفه خدمات">
-
-
-</a>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
 
 <section class="py-24 bg-slate-50">
 
@@ -1830,13 +1787,116 @@ const url=
 
 window.open(url,"_blank");
 
-
 }
-
 
 
 </script>
 
+<!-- =========================
+     TARIFE POPUP
+========================= -->
+
+<div
+    id="tarifeModal"
+    class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/80 p-4"
+    onclick="closeTarife(event)"
+    role="dialog"
+    aria-modal="true"
+    aria-label="تعرفه خدمات دندانپزشکی"
+>
+
+    <div
+        class="relative max-w-5xl w-full max-h-[95vh] flex items-center justify-center"
+        onclick="event.stopPropagation()"
+    >
+
+        <!-- دکمه بستن -->
+        <button
+            type="button"
+            onclick="closeTarife()"
+            class="absolute top-2 right-2 md:top-4 md:right-4 z-10
+                   w-11 h-11 rounded-full
+                   bg-white text-gray-800
+                   text-3xl font-bold
+                   shadow-xl
+                   hover:bg-gray-100
+                   transition cursor-pointer"
+            aria-label="بستن"
+        >
+            &times;
+        </button>
+
+        <!-- عکس تعرفه -->
+        <img
+            src="images/tarife.png"
+            alt="تعرفه خدمات دندانپزشکی سپیدان"
+            class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl"
+        >
+
+    </div>
+
+</div>
+
+
+<script>
+
+function openTarife(event) {
+
+    if (event) {
+        event.preventDefault();
+    }
+
+    const modal = document.getElementById("tarifeModal");
+
+    if (!modal) return;
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeTarife(event) {
+
+    /*
+     فقط وقتی روی پس‌زمینه مشکی کلیک شود
+     Popup بسته می‌شود.
+    */
+
+    if (
+        event &&
+        event.target !== event.currentTarget
+    ) {
+        return;
+    }
+
+    const modal = document.getElementById("tarifeModal");
+
+    if (!modal) return;
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+
+    document.body.style.overflow = "";
+}
+
+
+/*
+بستن Popup با کلید ESC
+*/
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeTarife();
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
