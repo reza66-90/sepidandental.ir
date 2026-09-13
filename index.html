@@ -603,11 +603,7 @@ a{
         border-radius:20px;
     }
 
-    .hero .swiper-slide img{
-        height:245px !important;
-        object-fit:cover;
-    }
-
+  
     .hero .swiper-pagination{
         bottom:8px !important;
     }
@@ -1044,6 +1040,46 @@ a{
         animation-duration:.01ms !important;
         animation-iteration-count:1 !important;
         transition-duration:.01ms !important;
+    }
+
+}
+   /* =========================
+   MOBILE HERO SWIPER FIX
+========================= */
+
+@media (max-width: 767px){
+
+    .hero .swiper{
+        width:100% !important;
+        max-width:100% !important;
+        height:245px !important;
+        overflow:hidden !important;
+        border-radius:20px !important;
+    }
+
+    .hero .swiper-wrapper{
+        width:100% !important;
+        height:245px !important;
+    }
+
+    .hero .swiper-slide{
+        width:100% !important;
+        max-width:100% !important;
+        height:245px !important;
+        flex-shrink:0 !important;
+    }
+
+    .hero .swiper-slide img{
+        display:block !important;
+        width:100% !important;
+        max-width:100% !important;
+        height:245px !important;
+        object-fit:cover !important;
+    }
+
+    .hero .swiper-pagination{
+        bottom:8px !important;
+        z-index:20 !important;
     }
 
 }
@@ -2676,25 +2712,34 @@ typeof Swiper !== "undefined" &&
 document.querySelector(".mySwiper")
 ){
 
-new Swiper(".mySwiper",{
+new Swiper(".mySwiper", {
 
-loop:true,
+    loop: true,
 
-effect:"fade",
+    effect: "slide",
 
-autoplay:{
-delay:4000,
-disableOnInteraction:false
-},
+    speed: 700,
 
-pagination:{
-el:".mySwiper .swiper-pagination",
-clickable:true
-}
+    slidesPerView: 1,
+
+    spaceBetween: 0,
+
+    observer: true,
+
+    observeParents: true,
+
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+    },
+
+    pagination: {
+        el: ".mySwiper .swiper-pagination",
+        clickable: true
+    }
 
 });
-
-}
 
 
 /* =========================
