@@ -20,10 +20,7 @@ content="دندانپزشکی سپیدان، ایمپلنت دندان، لمی�
 content="دندانپزشکی سپیدان | ایمپلنت، لمینت و طراحی لبخند در تهران">
 
 <meta property="og:site_name" content="دندانپزشکی سپیدان">
-
-<meta property="og:description"
-content="خدمات تخصصی دندانپزشکی و طراحی لبخند">
-
+<meta property="og:description" content="خدمات تخصصی دندانپزشکی و طراحی لبخند">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fa_IR">
 <meta property="og:url" content="https://sepidandental.ir/">
@@ -36,7 +33,7 @@ content="https://sepidandental.ir/images/cover.jpg">
 <meta name="twitter:image"
 content="https://sepidandental.ir/images/cover.jpg">
 
-<meta name="theme-color" content="#0B2D5C">
+<meta name="theme-color" content="#071A36">
 <meta name="robots" content="index,follow">
 <meta name="author" content="دندانپزشکی سپیدان">
 
@@ -45,12 +42,14 @@ content="https://sepidandental.ir/images/cover.jpg">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 
-<!-- جلوگیری از تأخیر تصویر اول Hero -->
 <link
 rel="preload"
 as="image"
 href="images/clinic/sepidan-clinic-tehran.jpg"
 fetchpriority="high">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -68,9 +67,6 @@ href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 <link rel="stylesheet" href="css/faq.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -79,17 +75,35 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <style>
 
 /* =========================================================
-   ROOT
+   PREMIUM DESIGN SYSTEM
 ========================================================= */
 
 :root{
-    --navy:#0B2D5C;
-    --navy2:#071A36;
-    --blue:#1e81ce;
-    --gold:#D4AF37;
-    --gold2:#E4C75B;
-    --cream:#f5f8fa;
-    --text:#26364a;
+    --navy:#071A36;
+    --navy2:#0B2D5C;
+    --navy3:#123E73;
+
+    --blue:#2388D8;
+    --blue2:#55B8FF;
+
+    --gold:#C9A227;
+    --gold2:#D4AF37;
+    --gold3:#F5E6A8;
+    --gold4:#FFE99A;
+
+    --cream:#F7F8FA;
+    --white:#FFFFFF;
+
+    --text:#25364B;
+    --muted:#6B7B8E;
+
+    --line:rgba(11,45,92,.09);
+
+    --shadow:
+        0 20px 55px rgba(7,26,54,.08);
+
+    --shadow-hover:
+        0 28px 70px rgba(7,26,54,.14);
 }
 
 *{
@@ -103,13 +117,39 @@ html{
 }
 
 body{
+    margin:0;
     font-family:"Vazirmatn",sans-serif;
     font-size:16px;
-    background:#f5f8fa;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(212,175,55,.035),
+            transparent 24%
+        ),
+        #F7F8FA;
     color:var(--text);
     overflow-x:hidden;
     width:100%;
     max-width:100%;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(35,136,216,.035),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 5% 75%,
+            rgba(212,175,55,.025),
+            transparent 25%
+        );
 }
 
 img{
@@ -122,11 +162,13 @@ a{
 }
 
 button{
+    font-family:inherit;
     -webkit-tap-highlight-color:transparent;
 }
 
 section{
     scroll-margin-top:90px;
+    position:relative;
 }
 
 .container{
@@ -138,21 +180,62 @@ section{
 
 
 /* =========================================================
+   PREMIUM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#071A36;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        180deg,
+        var(--gold3),
+        var(--gold2),
+        var(--gold)
+    );
+    border-radius:20px;
+}
+
+
+/* =========================================================
    HEADER
 ========================================================= */
 
 .site-header{
-    background:rgba(255,255,255,.90);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
     border-bottom:1px solid rgba(11,45,92,.08);
+    box-shadow:0 8px 35px rgba(7,26,54,.045);
+    transition:.35s ease;
+}
+
+.site-header:after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-1px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(212,175,55,.55),
+        transparent
+    );
+    opacity:.45;
 }
 
 .nav-link{
     font-size:14px;
     font-weight:700;
     color:#16283d;
-    transition:.25s;
+    transition:.3s ease;
     position:relative;
 }
 
@@ -167,8 +250,13 @@ section{
     right:0;
     width:0;
     height:2px;
-    background:var(--gold);
-    transition:.25s;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        var(--gold),
+        var(--gold3)
+    );
+    transition:.3s ease;
 }
 
 .nav-link:hover:after{
@@ -177,27 +265,75 @@ section{
 
 
 /* =========================================================
-   BUTTON
+   GOLD BUTTON
 ========================================================= */
 
 .btn-gold{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
-    background:linear-gradient(135deg,#C9A227,#E4C75B);
-    color:#10294b;
-    padding:11px 22px;
-    border-radius:13px;
+    gap:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #B88A17 0%,
+            #D4AF37 28%,
+            #F4E39A 52%,
+            #D4AF37 74%,
+            #B88A17 100%
+        );
+
+    background-size:220% 220%;
+
+    color:#10294B;
+    padding:12px 23px;
+    border-radius:14px;
+
     font-size:14px;
-    font-weight:800;
-    box-shadow:0 8px 22px rgba(196,160,39,.20);
-    transition:.3s;
+    font-weight:900;
+
+    border:1px solid rgba(255,255,255,.38);
+
+    box-shadow:
+        0 10px 28px rgba(201,162,39,.20),
+        inset 0 1px 0 rgba(255,255,255,.6);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background-position .6s ease;
+}
+
+.btn-gold:before{
+    content:"";
+    position:absolute;
+    top:-80%;
+    right:-40%;
+    width:35%;
+    height:260%;
+    transform:rotate(24deg);
+    background:rgba(255,255,255,.38);
+    filter:blur(8px);
+    transition:.7s ease;
+    z-index:-1;
 }
 
 .btn-gold:hover{
-    transform:translateY(-2px);
-    box-shadow:0 12px 28px rgba(196,160,39,.28);
+    transform:translateY(-3px);
+    background-position:100% 0;
+    box-shadow:
+        0 16px 38px rgba(201,162,39,.30),
+        0 0 24px rgba(212,175,55,.13),
+        inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.btn-gold:hover:before{
+    right:125%;
 }
 
 
@@ -206,19 +342,79 @@ section{
 ========================================================= */
 
 .section-title{
-    font-size:36px;
+    position:relative;
+    display:inline-block;
+
+    font-size:38px;
     line-height:1.5;
     font-weight:900;
     color:var(--navy);
-    margin-bottom:12px;
+    margin-bottom:13px;
+}
+
+.section-title:after{
+    content:"";
+    display:block;
+    width:54px;
+    height:3px;
+    margin:10px auto 0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold3),
+            var(--gold)
+        );
+
+    box-shadow:
+        0 0 14px rgba(212,175,55,.18);
 }
 
 .section-subtitle{
     font-size:15px;
     line-height:2;
-    color:#64748b;
-    max-width:680px;
+    color:var(--muted);
+    max-width:700px;
     margin:0 auto;
+}
+
+
+/* =========================================================
+   PREMIUM SECTION BACKGROUNDS
+========================================================= */
+
+.premium-section{
+    position:relative;
+    overflow:hidden;
+}
+
+.premium-section:before{
+    content:"";
+    position:absolute;
+    width:320px;
+    height:320px;
+    top:-180px;
+    left:-130px;
+    border-radius:50%;
+    background:rgba(212,175,55,.045);
+    filter:blur(25px);
+    pointer-events:none;
+}
+
+.premium-section:after{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    bottom:-160px;
+    right:-100px;
+    border-radius:50%;
+    background:rgba(35,136,216,.035);
+    filter:blur(25px);
+    pointer-events:none;
 }
 
 
@@ -227,70 +423,231 @@ section{
 ========================================================= */
 
 .hero{
+    position:relative;
+    overflow:hidden;
+
     background:
         radial-gradient(
-            circle at 85% 20%,
-            rgba(212,175,55,.16),
+            circle at 85% 18%,
+            rgba(212,175,55,.18),
             transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 75%,
+            rgba(35,136,216,.16),
+            transparent 28%
         ),
         linear-gradient(
             135deg,
-            #071A36,
-            #0B2D5C 50%,
-            #164B8A
+            #040F21 0%,
+            #071A36 34%,
+            #0B2D5C 68%,
+            #164B8A 100%
         );
 }
 
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(255,255,255,.025) 45%,
+            transparent 65%
+        );
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    left:-260px;
+    bottom:-280px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(35,136,216,.18),
+            transparent 67%
+        );
+
+    filter:blur(12px);
+    pointer-events:none;
+}
+
+.hero > .container{
+    position:relative;
+    z-index:2;
+}
+
 .hero-card{
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.15);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.045)
+        );
+
+    border:1px solid rgba(255,255,255,.17);
+
+    backdrop-filter:blur(20px) saturate(135%);
+    -webkit-backdrop-filter:blur(20px) saturate(135%);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.13);
+}
+
+.hero-card:before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    top:-120px;
+    right:-100px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.17),
+            transparent 68%
+        );
+
+    filter:blur(10px);
+    pointer-events:none;
+}
+
+.hero-card:after{
+    content:"";
+    position:absolute;
+    left:8%;
+    right:8%;
+    bottom:0;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.65),
+            transparent
+        );
 }
 
 .hero-title{
-    font-size:48px;
+    font-size:50px;
     line-height:1.5;
     font-weight:900;
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #F7E7A9,
-        #D4AF37
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            #FFFFFF 0%,
+            #F7E7A9 48%,
+            #D4AF37 100%
+        );
+
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
+
+    filter:
+        drop-shadow(
+            0 7px 22px rgba(0,0,0,.16)
+        );
 }
 
 .hero-text{
     font-size:17px;
-    line-height:2.1;
-    color:rgba(255,255,255,.86);
+    line-height:2.15;
+    color:rgba(255,255,255,.84);
 }
 
-/* مهم: جلوگیری از overflow ستون‌های Hero */
+
+/* =========================================================
+   HERO BADGE
+========================================================= */
+
+.hero-badge{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 8px 25px rgba(0,0,0,.08);
+
+    backdrop-filter:blur(10px);
+}
+
+
+/* =========================================================
+   HERO IMAGE FRAME
+========================================================= */
+
+.hero-image-frame{
+    position:relative;
+    border-radius:30px;
+    padding:1px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.35),
+            rgba(212,175,55,.48),
+            rgba(255,255,255,.08)
+        );
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.28),
+        0 0 40px rgba(212,175,55,.06);
+}
+
+.hero-image-frame:after{
+    content:"";
+    position:absolute;
+    inset:10px;
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+
+    pointer-events:none;
+    z-index:10;
+}
+
+
+/* =========================================================
+   HERO SWIPER
+========================================================= */
+
 .hero .grid > div{
     min-width:0;
 }
 
-/* =========================================================
-   HERO SWIPER - FIXED
-========================================================= */
-
-/*
-   این قسمت اصلی‌ترین اصلاح برای مشکل موبایل است.
-   هیچ عرضی به صورت auto یا محاسبه‌شده باقی نمی‌ماند.
-*/
-
 .hero .mySwiper{
     position:relative;
     display:block;
+
     width:100% !important;
     max-width:100%;
+
     height:580px;
+
     overflow:hidden;
     isolation:isolate;
+
+    border-radius:29px;
 }
 
 .hero .mySwiper .swiper-wrapper{
@@ -301,28 +658,54 @@ section{
 
 .hero .mySwiper .swiper-slide{
     position:relative;
+
     display:block;
     flex-shrink:0;
+
     width:100% !important;
     max-width:100%;
+
     height:100% !important;
+
     overflow:hidden;
+}
+
+.hero .mySwiper .swiper-slide:after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4,15,33,.02),
+            rgba(4,15,33,.08)
+        );
+
+    pointer-events:none;
 }
 
 .hero .mySwiper .swiper-slide img{
     display:block;
+
     width:100% !important;
     max-width:none;
-    height:100% !important;
+
     min-width:100%;
+
+    height:100% !important;
+
     object-fit:cover;
     object-position:center center;
+
+    transform:scale(1.001);
 }
 
 .hero .mySwiper .swiper-pagination{
     position:absolute;
     z-index:20;
-    bottom:14px;
+
+    bottom:16px;
     left:0;
     right:0;
 }
@@ -330,70 +713,298 @@ section{
 .hero .mySwiper .swiper-pagination-bullet{
     width:7px;
     height:7px;
-    opacity:.75;
+
+    opacity:.65;
+
     background:#fff;
-    transition:.25s;
+
+    transition:.35s;
 }
 
 .hero .mySwiper .swiper-pagination-bullet-active{
-    width:22px;
+    width:25px;
+
     border-radius:10px;
+
     opacity:1;
-    background:#D4AF37;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold3)
+        );
+
+    box-shadow:
+        0 0 12px rgba(212,175,55,.3);
 }
 
 
 /* =========================================================
-   TRUST
+   TRUST BAR
 ========================================================= */
 
+.trust-section{
+    position:relative;
+    margin-top:-1px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #FFFFFF,
+            #F9FAFB
+        );
+
+    border-bottom:1px solid rgba(11,45,92,.06);
+}
+
 .trust-card{
-    background:#fff;
-    border:1px solid #e7edf3;
-    border-radius:18px;
-    padding:20px 16px;
-    box-shadow:0 12px 35px rgba(15,40,70,.06);
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(247,249,251,.95)
+        );
+
+    border:1px solid rgba(11,45,92,.08);
+
+    border-radius:21px;
+
+    padding:22px 16px;
+
+    box-shadow:
+        0 15px 40px rgba(15,40,70,.055);
+
+    transition:.35s ease;
+}
+
+.trust-card:before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    top:-65px;
+    right:-45px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.12),
+            transparent 70%
+        );
+}
+
+.trust-card:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(212,175,55,.22);
+
+    box-shadow:
+        0 22px 50px rgba(15,40,70,.09);
+}
+
+.trust-icon{
+    width:44px;
+    height:44px;
+
+    margin:0 auto 9px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    color:#9C7813;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FBF1C7,
+            #E0BE45
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.8),
+        0 8px 18px rgba(201,162,39,.12);
 }
 
 .trust-number{
-    font-size:27px;
+    font-size:28px;
+    line-height:1.4;
     font-weight:900;
     color:var(--navy);
 }
 
+.trust-label{
+    font-size:12px;
+    color:#738196;
+}
+
 
 /* =========================================================
-   CARDS
+   PREMIUM CARDS
 ========================================================= */
 
 .card{
-    background:#fff;
-    border:1px solid #edf1f5;
-    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.99),
+            rgba(249,250,252,.96)
+        );
+
+    border:1px solid rgba(11,45,92,.075);
+
+    border-radius:22px;
+
     padding:22px;
-    box-shadow:0 12px 35px rgba(15,40,70,.06);
-    transition:.3s;
+
+    box-shadow:
+        0 13px 38px rgba(15,40,70,.055);
+
+    transition:
+        transform .38s cubic-bezier(.2,.8,.2,1),
+        box-shadow .38s ease,
+        border-color .38s ease;
+}
+
+.card:before{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    top:-115px;
+    left:-90px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.065),
+            transparent 70%
+        );
+
+    filter:blur(5px);
+
+    pointer-events:none;
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 20px 45px rgba(15,40,70,.10);
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(212,175,55,.20);
+
+    box-shadow:
+        0 26px 65px rgba(15,40,70,.105),
+        0 0 25px rgba(212,175,55,.035);
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.service-card{
+    transform-style:preserve-3d;
+    perspective:900px;
+}
+
+.service-card:hover{
+    transform:
+        translateY(-9px)
+        rotateX(1deg)
+        rotateY(-1deg);
 }
 
 .service-icon{
-    width:58px;
-    height:58px;
+    position:relative;
+
+    width:64px;
+    height:64px;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:17px;
-    background:linear-gradient(
-        135deg,
-        #f7e7a9,
-        #d4af37
-    );
+
+    border-radius:19px;
+
+    margin:0 auto 18px;
+
+    color:#5D4606;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FBF0C3 0%,
+            #D4AF37 52%,
+            #B88A17 100%
+        );
+
     font-size:25px;
-    margin:0 auto 16px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.75),
+        0 13px 28px rgba(201,162,39,.15);
+
+    transition:.35s ease;
+}
+
+.service-icon:after{
+    content:"";
+
+    position:absolute;
+    inset:5px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.25);
+}
+
+.service-card:hover .service-icon{
+    transform:
+        translateZ(14px)
+        rotate(-3deg)
+        scale(1.04);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.8),
+        0 17px 35px rgba(201,162,39,.21),
+        0 0 22px rgba(212,175,55,.08);
+}
+
+.service-line{
+    width:32px;
+    height:2px;
+
+    margin:15px auto 13px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
 }
 
 
@@ -402,19 +1013,156 @@ section{
 ========================================================= */
 
 .dark-box{
+    position:relative;
+    overflow:hidden;
+
     background:
         radial-gradient(
-            circle at top right,
-            rgba(212,175,55,.15),
-            transparent 30%
+            circle at 90% 10%,
+            rgba(212,175,55,.17),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 5% 90%,
+            rgba(35,136,216,.14),
+            transparent 28%
         ),
         linear-gradient(
             135deg,
-            #071A36,
-            #0B2D5C,
-            #164B8A
+            #040F21,
+            #071A36 45%,
+            #0B2D5C 75%,
+            #123E73
         );
-    border:1px solid rgba(212,175,55,.35);
+
+    border:1px solid rgba(212,175,55,.27);
+
+    box-shadow:
+        0 25px 65px rgba(7,26,54,.20),
+        inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+.dark-box:after{
+    content:"";
+
+    position:absolute;
+    left:10%;
+    right:10%;
+    bottom:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(212,175,55,.55),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   DOCTORS
+========================================================= */
+
+.doctor-card{
+    padding:12px;
+}
+
+.doctor-photo{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+}
+
+.doctor-photo img{
+    display:block;
+
+    width:100%;
+    height:300px;
+
+    object-fit:cover;
+
+    transition:
+        transform .7s cubic-bezier(.2,.8,.2,1);
+}
+
+.doctor-photo:after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 50%,
+            rgba(4,15,33,.60)
+        );
+
+    opacity:.65;
+
+    transition:.35s;
+}
+
+.doctor-card:hover .doctor-photo img{
+    transform:scale(1.055);
+}
+
+.doctor-card:hover .doctor-photo:after{
+    opacity:.82;
+}
+
+.doctor-badge{
+    position:absolute;
+
+    top:14px;
+    right:14px;
+
+    z-index:3;
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    padding:7px 11px;
+
+    border-radius:999px;
+
+    background:rgba(7,26,54,.70);
+
+    border:1px solid rgba(255,255,255,.16);
+
+    color:#fff;
+
+    font-size:10px;
+    font-weight:700;
+
+    backdrop-filter:blur(10px);
+}
+
+.doctor-info{
+    position:absolute;
+
+    right:17px;
+    left:17px;
+    bottom:16px;
+
+    z-index:3;
+
+    color:#fff;
+}
+
+.doctor-info h3{
+    font-size:18px;
+    font-weight:900;
+}
+
+.doctor-info p{
+    font-size:11px;
+    color:rgba(255,255,255,.72);
+    margin-top:4px;
 }
 
 
@@ -425,58 +1173,102 @@ section{
 .before-after{
     position:relative;
     overflow:hidden;
-    border-radius:22px;
+
+    border-radius:21px;
+
+    background:#071A36;
+
     touch-action:none;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.07);
 }
 
 .before-after > img{
     display:block;
+
     width:100%;
     height:360px;
+
     object-fit:cover;
 }
 
 .after-image{
     position:absolute;
+
     top:0;
     right:0;
+
     width:50%;
     height:100%;
+
     overflow:hidden;
 }
 
 .after-image img{
+    position:absolute;
+
+    top:0;
+    right:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
 }
 
 .before-after-line{
     position:absolute;
+
     top:0;
     bottom:0;
+
     right:50%;
+
     width:3px;
+
     background:#fff;
-    box-shadow:0 0 15px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 0 18px rgba(0,0,0,.45);
+
     z-index:4;
 }
 
 .before-after-button{
     position:absolute;
+
     top:50%;
     right:50%;
+
     transform:translate(50%,-50%);
-    width:48px;
-    height:48px;
+
+    width:50px;
+    height:50px;
+
     border-radius:50%;
-    background:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #F5F7FA
+        );
+
     color:var(--navy);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     z-index:5;
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.28);
+
+    border:2px solid rgba(212,175,55,.65);
+
+    cursor:ew-resize;
 }
 
 
@@ -484,13 +1276,90 @@ section{
    GALLERY
 ========================================================= */
 
-.gallery-img{
-    cursor:pointer;
-    transition:.35s;
+.gallery-grid{
+    position:relative;
 }
 
-.gallery-img:hover{
-    transform:scale(1.025);
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:21px;
+
+    background:#071A36;
+
+    cursor:pointer;
+
+    border:1px solid rgba(11,45,92,.08);
+
+    box-shadow:
+        0 14px 35px rgba(15,40,70,.07);
+}
+
+.gallery-item img{
+    display:block;
+
+    width:100%;
+    height:270px;
+
+    object-fit:cover;
+
+    transition:
+        transform .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.gallery-overlay{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7,26,54,.04),
+            rgba(7,26,54,.65)
+        );
+
+    opacity:0;
+
+    transition:.35s ease;
+}
+
+.gallery-overlay i{
+    width:50px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.92);
+
+    color:var(--navy);
+
+    transform:translateY(10px) scale(.9);
+
+    transition:.35s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.22);
+}
+
+.gallery-item:hover img{
+    transform:scale(1.065);
+}
+
+.gallery-item:hover .gallery-overlay{
+    opacity:1;
+}
+
+.gallery-item:hover .gallery-overlay i{
+    transform:translateY(0) scale(1);
 }
 
 
@@ -500,18 +1369,210 @@ section{
 
 .form-input{
     width:100%;
-    border:1px solid #dbe3eb;
-    border-radius:13px;
+
+    border:1px solid #DCE4EC;
+
+    border-radius:14px;
+
     padding:13px 15px;
+
     outline:none;
+
     font-family:inherit;
-    transition:.25s;
-    background:#fff;
+
+    transition:.3s;
+
+    background:
+        rgba(255,255,255,.96);
+
+    color:var(--text);
+}
+
+.form-input::placeholder{
+    color:#9AA7B5;
 }
 
 .form-input:focus{
     border-color:var(--gold);
-    box-shadow:0 0 0 3px rgba(212,175,55,.12);
+
+    box-shadow:
+        0 0 0 4px rgba(212,175,55,.09),
+        0 8px 25px rgba(15,40,70,.04);
+}
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonialSwiper{
+    padding:5px 5px 42px;
+}
+
+.testimonial-card{
+    max-width:760px;
+    margin:auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #F8FAFC
+        );
+}
+
+.testimonial-stars{
+    color:var(--gold);
+    letter-spacing:2px;
+
+    filter:
+        drop-shadow(
+            0 3px 8px rgba(212,175,55,.15)
+        );
+}
+
+.testimonial-quote{
+    width:50px;
+    height:50px;
+
+    margin:0 auto 13px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#9B7918;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FBF1C7,
+            #E2C354
+        );
+}
+
+.testimonialSwiper .swiper-pagination-bullet{
+    width:7px;
+    height:7px;
+
+    background:#B8C2CD;
+
+    opacity:.8;
+
+    transition:.3s;
+}
+
+.testimonialSwiper .swiper-pagination-bullet-active{
+    width:24px;
+
+    border-radius:10px;
+
+    background:var(--gold);
+
+    opacity:1;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.premium-cta{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(212,175,55,.17),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(35,136,216,.14),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #040F21,
+            #071A36 45%,
+            #0B2D5C
+        );
+}
+
+.premium-cta:before{
+    content:"";
+
+    position:absolute;
+
+    width:480px;
+    height:480px;
+
+    right:-250px;
+    top:-280px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.11),
+            transparent 68%
+        );
+
+    filter:blur(8px);
+}
+
+.premium-cta > .container{
+    position:relative;
+    z-index:2;
+}
+
+.cta-badge{
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-icon{
+    width:46px;
+    height:46px;
+    min-width:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    color:#172C49;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F9EFC1,
+            #D4AF37
+        );
+
+    box-shadow:
+        0 8px 20px rgba(212,175,55,.13),
+        inset 0 1px 0 rgba(255,255,255,.6);
+}
+
+.contact-map{
+    border:1px solid rgba(11,45,92,.08);
+
+    box-shadow:
+        0 20px 55px rgba(15,40,70,.09);
 }
 
 
@@ -519,26 +1580,215 @@ section{
    FLOATING BUTTONS
 ========================================================= */
 
+.floating-buttons{
+    filter:
+        drop-shadow(
+            0 10px 18px rgba(0,0,0,.16)
+        );
+}
+
+.floating-buttons a{
+    position:relative;
+}
+
 .floating-buttons img{
     width:54px;
     height:54px;
+
     object-fit:contain;
-    transition:.25s;
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
 }
 
 .floating-buttons a:hover img{
-    transform:scale(1.08);
+    transform:
+        translateY(-3px)
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 5px 10px rgba(0,0,0,.20)
+        );
 }
 
 
 /* =========================================================
-   MODALS
+   MOBILE CTA
+========================================================= */
+
+.mobile-cta{
+    background:
+        rgba(255,255,255,.84);
+
+    backdrop-filter:blur(22px) saturate(150%);
+    -webkit-backdrop-filter:blur(22px) saturate(150%);
+
+    border-top:1px solid rgba(11,45,92,.08);
+
+    box-shadow:
+        0 -12px 35px rgba(7,26,54,.10);
+}
+
+.mobile-cta a{
+    min-height:45px;
+
+    transition:.3s ease;
+}
+
+.mobile-cta a:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================================
+   MODALS / LIGHTBOX
 ========================================================= */
 
 .modal-bg{
-    background:rgba(0,0,0,.82);
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
+    background:
+        rgba(2,10,23,.88);
+
+    backdrop-filter:blur(14px) saturate(130%);
+    -webkit-backdrop-filter:blur(14px) saturate(130%);
+}
+
+.premium-modal-content{
+    position:relative;
+
+    border-radius:22px;
+
+    border:1px solid rgba(212,175,55,.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.45);
+}
+
+.modal-close{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(255,255,255,.95);
+
+    color:#152941;
+
+    transition:.25s;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.22);
+}
+
+.modal-close:hover{
+    transform:rotate(4deg) scale(1.05);
+
+    background:
+        linear-gradient(
+            135deg,
+            #FBF1C7,
+            #D4AF37
+        );
+}
+
+.lightbox-nav{
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#10294B;
+
+    background:rgba(255,255,255,.93);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    z-index:10;
+
+    transition:.25s;
+}
+
+.lightbox-nav:hover{
+    transform:
+        translateY(-50%)
+        scale(1.06);
+
+    background:#fff;
+}
+
+.lightbox-prev{
+    right:18px;
+}
+
+.lightbox-next{
+    left:18px;
+}
+
+#modalImage{
+    transition:
+        opacity .22s ease,
+        transform .22s ease;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.premium-footer{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(212,175,55,.08),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #040F21,
+            #071A36
+        );
+}
+
+.premium-footer:before{
+    content:"";
+
+    position:absolute;
+
+    left:-200px;
+    bottom:-250px;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(35,136,216,.08),
+            transparent 70%
+        );
 }
 
 
@@ -590,26 +1840,25 @@ section{
         width:48px;
         height:48px;
     }
-
 }
 
 
 /* =========================================================
-   MOBILE PREMIUM FIX
+   MOBILE PREMIUM
 ========================================================= */
 
 @media(max-width:767px){
 
     .site-header{
-        background:rgba(255,255,255,.96);
-        backdrop-filter:blur(18px);
-        -webkit-backdrop-filter:blur(18px);
+        background:rgba(255,255,255,.94);
     }
 
     .site-header > .container{
         min-height:68px;
+
         padding-top:9px;
         padding-bottom:9px;
+
         gap:8px;
     }
 
@@ -620,9 +1869,13 @@ section{
 
     .site-header .btn-gold{
         padding:9px 11px;
+
         border-radius:11px;
+
         font-size:11px;
+
         gap:5px;
+
         white-space:nowrap;
     }
 
@@ -630,16 +1883,28 @@ section{
         width:42px;
         height:42px;
         min-width:42px;
+
         border-radius:12px;
+
         display:flex;
         align-items:center;
         justify-content:center;
+
         font-size:16px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #0B2D5C,
+                #071A36
+            );
     }
 
     #mobileMenu{
         max-height:calc(100vh - 68px);
+
         overflow-y:auto;
+
         overscroll-behavior:contain;
     }
 
@@ -650,18 +1915,17 @@ section{
 
     #mobileMenu a{
         padding:13px 4px;
+
         font-size:14px;
         font-weight:600;
     }
 
 
-    /* =====================================================
-       HERO MOBILE
-    ===================================================== */
+    /* HERO */
 
     .hero{
         padding-top:88px !important;
-        padding-bottom:25px !important;
+        padding-bottom:30px !important;
 
         background:
             radial-gradient(
@@ -669,11 +1933,16 @@ section{
                 rgba(212,175,55,.18),
                 transparent 28%
             ),
+            radial-gradient(
+                circle at 5% 70%,
+                rgba(35,136,216,.12),
+                transparent 30%
+            ),
             linear-gradient(
                 145deg,
-                #06162d 0%,
-                #0B2D5C 55%,
-                #155b9e 100%
+                #040F21 0%,
+                #071A36 48%,
+                #0B2D5C 100%
             );
     }
 
@@ -683,7 +1952,7 @@ section{
     }
 
     .hero .grid{
-        gap:14px !important;
+        gap:15px !important;
     }
 
     .hero .grid > div{
@@ -700,46 +1969,58 @@ section{
         height:78px !important;
         width:auto !important;
         max-width:100%;
+
         margin-bottom:13px !important;
     }
 
     .hero-card > div:first-of-type{
         font-size:10px;
+
         padding:7px 11px;
+
         margin-bottom:12px;
     }
 
     .hero-title{
         font-size:27px !important;
         line-height:1.55 !important;
+
         margin-bottom:10px !important;
     }
 
     .hero-text{
         font-size:13px !important;
         line-height:2 !important;
+
         margin-bottom:17px !important;
     }
 
     .hero-card .btn-gold,
     .hero-card a:not(.btn-gold){
         min-height:43px;
+
         padding:9px 15px !important;
+
         font-size:12px;
     }
 
-
-    /* =====================================================
-       HERO SWIPER MOBILE
-    ===================================================== */
+    .hero-image-frame{
+        border-radius:22px;
+    }
 
     .hero .mySwiper{
         width:100% !important;
+
         max-width:100% !important;
+
         height:245px !important;
+
         min-height:245px !important;
         max-height:245px !important;
+
         overflow:hidden !important;
+
+        border-radius:21px !important;
     }
 
     .hero .mySwiper .swiper-wrapper{
@@ -749,51 +2030,57 @@ section{
 
     .hero .mySwiper .swiper-slide{
         width:100% !important;
+
         min-width:100% !important;
         max-width:100% !important;
+
         height:245px !important;
+
         min-height:245px !important;
         max-height:245px !important;
+
         flex-shrink:0 !important;
     }
 
     .hero .mySwiper .swiper-slide img{
         width:100% !important;
+
         min-width:100% !important;
         max-width:none !important;
+
         height:245px !important;
+
         min-height:245px !important;
         max-height:245px !important;
+
         object-fit:cover !important;
     }
 
-    .hero .mySwiper .swiper-pagination{
-        bottom:10px !important;
-    }
 
-    .hero .mySwiper .swiper-pagination-bullet{
-        width:6px;
-        height:6px;
-    }
+    /* TRUST */
 
-    .hero .mySwiper .swiper-pagination-bullet-active{
-        width:20px;
-    }
-
-
-    /* =====================================================
-       TRUST
-    ===================================================== */
-
-    section.bg-white.py-6{
-        padding-top:12px !important;
-        padding-bottom:12px !important;
+    .trust-section{
+        padding-top:13px !important;
+        padding-bottom:13px !important;
     }
 
     .trust-card{
-        min-height:72px;
+        min-height:82px;
+
         padding:11px 7px !important;
-        border-radius:14px;
+
+        border-radius:15px;
+    }
+
+    .trust-icon{
+        width:34px;
+        height:34px;
+
+        border-radius:11px;
+
+        font-size:13px;
+
+        margin-bottom:5px;
     }
 
     .trust-number{
@@ -801,18 +2088,16 @@ section{
         line-height:1.4;
     }
 
-    .trust-card .text-xs{
+    .trust-label{
         font-size:9px !important;
     }
 
 
-    /* =====================================================
-       SECTIONS
-    ===================================================== */
+    /* SECTIONS */
 
     section.py-16{
-        padding-top:42px !important;
-        padding-bottom:42px !important;
+        padding-top:45px !important;
+        padding-bottom:45px !important;
     }
 
     .container{
@@ -823,12 +2108,21 @@ section{
     .section-title{
         font-size:23px !important;
         line-height:1.6 !important;
+
         margin-bottom:7px !important;
+    }
+
+    .section-title:after{
+        width:42px;
+        height:2px;
+
+        margin-top:7px;
     }
 
     .section-subtitle{
         font-size:12px !important;
         line-height:2 !important;
+
         padding:0 8px;
     }
 
@@ -837,26 +2131,35 @@ section{
     }
 
 
-    /* =====================================================
-       SERVICES
-    ===================================================== */
+    /* SERVICES */
 
     #services .grid{
         gap:10px !important;
     }
 
     #services .card{
-        padding:15px 10px !important;
+        padding:16px 10px !important;
+
         border-radius:17px;
+
         min-width:0;
     }
 
     .service-icon{
-        width:45px !important;
-        height:45px !important;
+        width:46px !important;
+        height:46px !important;
+
         border-radius:13px;
-        font-size:19px;
+
+        font-size:18px;
+
         margin-bottom:10px;
+    }
+
+    .service-line{
+        width:25px;
+
+        margin:10px auto 8px;
     }
 
     #services h3{
@@ -870,59 +2173,68 @@ section{
     }
 
 
-    /* =====================================================
-       GENERAL CARDS
-    ===================================================== */
+    /* GENERAL CARDS */
 
     .card{
         border-radius:17px;
+
         padding:16px;
     }
 
 
-    /* =====================================================
-       WHY
-    ===================================================== */
+    /* WHY */
 
     .dark-box{
         border-radius:20px !important;
     }
 
 
-    /* =====================================================
-       DOCTORS
-    ===================================================== */
+    /* DOCTORS */
 
     #doctors .grid{
         gap:12px !important;
     }
 
     #doctors .card{
-        padding:12px !important;
+        padding:10px !important;
     }
 
-    #doctors .card img{
+    .doctor-photo{
+        border-radius:14px;
+    }
+
+    .doctor-photo img{
         height:230px !important;
-        border-radius:14px !important;
-        margin-bottom:12px !important;
     }
 
-    #doctors h3{
+    .doctor-info{
+        right:13px;
+        left:13px;
+        bottom:12px;
+    }
+
+    .doctor-info h3{
         font-size:14px !important;
     }
 
-    #doctors p{
-        font-size:11px !important;
+    .doctor-info p{
+        font-size:10px !important;
+    }
+
+    .doctor-badge{
+        top:10px;
+        right:10px;
+
+        font-size:8px;
+
+        padding:6px 8px;
     }
 
 
-    /* =====================================================
-       BEFORE AFTER
-    ===================================================== */
+    /* BEFORE AFTER */
 
     .before-after{
         border-radius:16px;
-        touch-action:none;
     }
 
     .before-after > img{
@@ -932,7 +2244,8 @@ section{
     .before-after-button{
         width:40px;
         height:40px;
-        font-size:12px;
+
+        font-size:11px;
     }
 
     .before-after-line{
@@ -940,32 +2253,29 @@ section{
     }
 
 
-    /* =====================================================
-       BLEACHING
-    ===================================================== */
-
-    section .grid.grid-cols-2 img{
-        min-width:0;
-    }
-
-
-    /* =====================================================
-       GALLERY
-    ===================================================== */
+    /* GALLERY */
 
     #gallery .grid{
         gap:8px !important;
     }
 
-    #gallery .gallery-img{
+    .gallery-item{
+        border-radius:14px;
+    }
+
+    .gallery-item img{
         height:145px !important;
-        border-radius:13px !important;
+    }
+
+    .gallery-overlay i{
+        width:40px;
+        height:40px;
+
+        font-size:13px;
     }
 
 
-    /* =====================================================
-       BLOG
-    ===================================================== */
+    /* BLOG */
 
     #home-blog-container{
         grid-template-columns:1fr !important;
@@ -993,9 +2303,7 @@ section{
     }
 
 
-    /* =====================================================
-       FAQ
-    ===================================================== */
+    /* FAQ */
 
     #faq .card{
         border-radius:15px !important;
@@ -1003,8 +2311,11 @@ section{
 
     .faq-btn{
         padding:15px !important;
+
         font-size:12px !important;
+
         line-height:1.8;
+
         gap:10px;
     }
 
@@ -1012,61 +2323,63 @@ section{
         padding-left:15px !important;
         padding-right:15px !important;
         padding-bottom:15px !important;
+
         font-size:11px !important;
         line-height:2 !important;
     }
 
 
-    /* =====================================================
-       TESTIMONIAL
-    ===================================================== */
+    /* TESTIMONIAL */
 
     .testimonialSwiper{
-        padding-bottom:28px;
+        padding-bottom:30px;
     }
 
-    .testimonialSwiper .card{
-        padding:18px !important;
+    .testimonial-card{
+        padding:19px !important;
     }
 
-    .testimonialSwiper p{
+    .testimonial-card p{
         font-size:12px !important;
         line-height:2 !important;
     }
 
+    .testimonial-quote{
+        width:42px;
+        height:42px;
 
-    /* =====================================================
-       CTA
-    ===================================================== */
-
-    section.bg-\[\#0B2D5C\]{
-        padding-top:42px !important;
-        padding-bottom:45px !important;
+        font-size:13px;
     }
 
-    section.bg-\[\#0B2D5C\] h2{
+
+    /* CTA */
+
+    .premium-cta{
+        padding-top:44px !important;
+        padding-bottom:48px !important;
+    }
+
+    .premium-cta h2{
         font-size:22px !important;
         line-height:1.7;
     }
 
-    section.bg-\[\#0B2D5C\] p{
+    .premium-cta p{
         font-size:12px !important;
     }
 
-    section.bg-\[\#0B2D5C\] form{
+    .premium-cta form{
         grid-template-columns:1fr !important;
         gap:8px !important;
     }
 
-    section.bg-\[\#0B2D5C\] input,
-    section.bg-\[\#0B2D5C\] button{
+    .premium-cta input,
+    .premium-cta button{
         min-height:45px;
     }
 
 
-    /* =====================================================
-       CONTACT
-    ===================================================== */
+    /* CONTACT */
 
     #contact .dark-box{
         padding:20px !important;
@@ -1074,10 +2387,11 @@ section{
 
     #contact .dark-box h3{
         font-size:19px !important;
+
         margin-bottom:20px !important;
     }
 
-    #contact .dark-box .w-11{
+    .contact-icon{
         width:38px !important;
         height:38px !important;
         min-width:38px;
@@ -1093,16 +2407,15 @@ section{
     #contact iframe{
         min-height:280px !important;
         height:280px !important;
+
         border-radius:20px !important;
     }
 
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
+    /* FOOTER */
 
     footer{
-        padding-bottom:92px !important;
+        padding-bottom:94px !important;
     }
 
     footer img{
@@ -1118,13 +2431,12 @@ section{
     }
 
 
-    /* =====================================================
-       FLOATING BUTTONS
-    ===================================================== */
+    /* FLOATING */
 
     .floating-buttons{
         left:8px !important;
         bottom:76px !important;
+
         gap:5px !important;
     }
 
@@ -1134,30 +2446,32 @@ section{
     }
 
 
-    /* =====================================================
-       MOBILE BOTTOM BAR
-    ===================================================== */
+    /* MOBILE CTA */
 
     body{
         padding-bottom:0;
     }
 
-    .md\:hidden.fixed.bottom-0{
+    .mobile-cta{
         padding:7px !important;
+
         padding-bottom:
-            calc(7px + env(safe-area-inset-bottom)) !important;
+            calc(
+                7px +
+                env(safe-area-inset-bottom)
+            ) !important;
     }
 
-    .md\:hidden.fixed.bottom-0 a{
-        min-height:42px;
+    .mobile-cta a{
+        min-height:43px;
+
         font-size:11px;
+
         border-radius:11px;
     }
 
 
-    /* =====================================================
-       MODALS
-    ===================================================== */
+    /* MODALS */
 
     #imageModal,
     #tarifeModal{
@@ -1167,22 +2481,38 @@ section{
     #imageModal img,
     #tarifeModal img{
         max-width:96vw !important;
-        max-height:88vh !important;
-        border-radius:12px !important;
+        max-height:86vh !important;
+
+        border-radius:13px !important;
     }
 
-    #imageModal button,
-    #tarifeModal button{
+    .lightbox-nav{
+        width:38px;
+        height:38px;
+
+        font-size:12px;
+    }
+
+    .lightbox-prev{
+        right:7px;
+    }
+
+    .lightbox-next{
+        left:7px;
+    }
+
+    .modal-close{
         width:38px !important;
         height:38px !important;
-        font-size:22px !important;
+
+        font-size:20px !important;
     }
 
 }
 
 
 /* =========================================================
-   EXTRA SMALL PHONES
+   EXTRA SMALL
 ========================================================= */
 
 @media(max-width:380px){
@@ -1208,6 +2538,7 @@ section{
 
     .hero .mySwiper{
         height:215px !important;
+
         min-height:215px !important;
         max-height:215px !important;
     }
@@ -1218,12 +2549,14 @@ section{
 
     .hero .mySwiper .swiper-slide{
         height:215px !important;
+
         min-height:215px !important;
         max-height:215px !important;
     }
 
     .hero .mySwiper .swiper-slide img{
         height:215px !important;
+
         min-height:215px !important;
         max-height:215px !important;
     }
@@ -1248,14 +2581,17 @@ section{
 
 
 /* =========================================================
-   SAFE AREA IPHONE
+   SAFE AREA
 ========================================================= */
 
 @supports(padding:max(0px)){
 
-    .md\:hidden.fixed.bottom-0{
+    .mobile-cta{
         padding-bottom:
-            max(7px, env(safe-area-inset-bottom)) !important;
+            max(
+                7px,
+                env(safe-area-inset-bottom)
+            ) !important;
     }
 
 }
@@ -1271,8 +2607,11 @@ section{
     *::before,
     *::after{
         scroll-behavior:auto !important;
+
         animation-duration:.01ms !important;
+
         animation-iteration-count:1 !important;
+
         transition-duration:.01ms !important;
     }
 
@@ -1404,13 +2743,14 @@ class="btn-gold"
 href="#"
 onclick="openTarife(event)">
 
+<i class="fa-solid fa-tags"></i>
 تعرفه خدمات
 
 </a>
 
 <button
 id="menuBtn"
-class="md:hidden w-10 h-10 rounded-xl bg-[#0B2D5C] text-white"
+class="md:hidden w-10 h-10 rounded-xl text-white"
 aria-label="منو"
 type="button">
 
@@ -1454,6 +2794,7 @@ class="block py-3 font-bold text-[#A3831A]"
 href="#"
 onclick="openTarife(event)">
 
+<i class="fa-solid fa-tags ml-1"></i>
 تعرفه خدمات
 
 </a>
@@ -1478,20 +2819,22 @@ class="hero pt-28 pb-10 md:pt-32 md:pb-14 text-white">
 <div class="grid lg:grid-cols-5 gap-8 items-center">
 
 
-<!-- HERO TEXT -->
-
 <div class="lg:col-span-2 order-2 lg:order-1">
 
-<div class="hero-card rounded-[30px] p-7 md:p-10 text-center">
+<div
+class="hero-card rounded-[30px] p-7 md:p-10 text-center"
+data-aos="fade-left"
+data-aos-duration="900">
 
 <img
 src="images/logo.png"
 alt="دندانپزشکی سپیدان"
 class="h-28 md:h-36 mx-auto mb-5 object-contain"
 loading="eager"
+fetchpriority="high"
 decoding="async">
 
-<div class="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-2 text-xs mb-5">
+<div class="hero-badge inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs mb-5">
 
 <i class="fa-solid fa-tooth text-[#D4AF37]"></i>
 
@@ -1517,14 +2860,17 @@ decoding="async">
 href="#contact"
 class="btn-gold">
 
+<i class="fa-solid fa-calendar-check"></i>
+
 رزرو نوبت
-<i class="fa-solid fa-arrow-left"></i>
 
 </a>
 
 <a
 href="#services"
-class="px-6 py-3 rounded-xl border border-white/30 font-bold text-sm hover:bg-white hover:text-[#0B2D5C] transition">
+class="px-6 py-3 rounded-xl border border-white/25 font-bold text-sm bg-white/[.03] hover:bg-white hover:text-[#0B2D5C] transition">
+
+<i class="fa-solid fa-arrow-down ml-1"></i>
 
 مشاهده خدمات
 
@@ -1537,12 +2883,14 @@ class="px-6 py-3 rounded-xl border border-white/30 font-bold text-sm hover:bg-wh
 </div>
 
 
-<!-- HERO SLIDER -->
-
-<div class="lg:col-span-3 order-1 lg:order-2">
-
 <div
-class="rounded-[28px] overflow-hidden shadow-2xl border border-white/10">
+class="lg:col-span-3 order-1 lg:order-2"
+data-aos="fade-right"
+data-aos-duration="1000">
+
+<div class="hero-image-frame">
+
+<div class="rounded-[28px] overflow-hidden shadow-2xl border border-white/10">
 
 <div class="swiper mySwiper">
 
@@ -1597,6 +2945,8 @@ decoding="async">
 
 </div>
 
+</div>
+
 </section>
 
 
@@ -1604,54 +2954,108 @@ decoding="async">
      TRUST
 ========================================================= -->
 
-<section class="bg-white py-6 relative z-10">
+<section class="trust-section py-6 relative z-10">
 
 <div class="container">
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
 
-<div class="trust-card text-center">
 
-<div class="trust-number">10+</div>
+<div class="trust-card text-center" data-aos="fade-up">
 
-<div class="text-xs text-gray-500 mt-1">
+<div class="trust-icon">
+
+<i class="fa-solid fa-award"></i>
+
+</div>
+
+<div
+class="trust-number counter"
+data-target="10"
+data-suffix="+">
+
+0+
+
+</div>
+
+<div class="trust-label mt-1">
 سال تجربه
 </div>
 
 </div>
 
 
-<div class="trust-card text-center">
+<div class="trust-card text-center" data-aos="fade-up" data-aos-delay="100">
 
-<div class="trust-number">5000+</div>
+<div class="trust-icon">
 
-<div class="text-xs text-gray-500 mt-1">
+<i class="fa-solid fa-user-group"></i>
+
+</div>
+
+<div
+class="trust-number counter"
+data-target="5000"
+data-suffix="+">
+
+0+
+
+</div>
+
+<div class="trust-label mt-1">
 بیمار راضی
 </div>
 
 </div>
 
 
-<div class="trust-card text-center">
+<div class="trust-card text-center" data-aos="fade-up" data-aos-delay="200">
 
-<div class="trust-number">4</div>
+<div class="trust-icon">
 
-<div class="text-xs text-gray-500 mt-1">
+<i class="fa-solid fa-user-doctor"></i>
+
+</div>
+
+<div
+class="trust-number counter"
+data-target="4"
+data-suffix="">
+
+0
+
+</div>
+
+<div class="trust-label mt-1">
 پزشک متخصص
 </div>
 
 </div>
 
 
-<div class="trust-card text-center">
+<div class="trust-card text-center" data-aos="fade-up" data-aos-delay="300">
 
-<div class="trust-number">100%</div>
+<div class="trust-icon">
 
-<div class="text-xs text-gray-500 mt-1">
+<i class="fa-solid fa-shield-heart"></i>
+
+</div>
+
+<div
+class="trust-number counter"
+data-target="100"
+data-suffix="%">
+
+0%
+
+</div>
+
+<div class="trust-label mt-1">
 استریل کامل
 </div>
 
 </div>
+
 
 </div>
 
@@ -1664,11 +3068,11 @@ decoding="async">
      SERVICES
 ========================================================= -->
 
-<section id="services" class="py-16 bg-[#f7f9fb]">
+<section id="services" class="py-16 premium-section bg-[#F7F9FB]">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
 
 <h2 class="section-title">
 خدمات تخصصی سپیدان
@@ -1685,13 +3089,17 @@ decoding="async">
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up">
 
-<div class="service-icon">🦷</div>
+<div class="service-icon">
+<i class="fa-solid fa-tooth"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 ایمپلنت دیجیتال
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 جایگزینی دندان با برنامه‌ریزی دقیق و تکنولوژی مدرن
@@ -1700,13 +3108,17 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up" data-aos-delay="70">
 
-<div class="service-icon">✨</div>
+<div class="service-icon">
+<i class="fa-solid fa-gem"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 لمینت سرامیکی
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 طراحی لبخند طبیعی، زیبا و ماندگار
@@ -1715,13 +3127,17 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up" data-aos-delay="140">
 
-<div class="service-icon">😁</div>
+<div class="service-icon">
+<i class="fa-solid fa-face-smile-beam"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 کامپوزیت ونیر
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 زیبایی لبخند با حداقل تراش دندان
@@ -1730,13 +3146,17 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up" data-aos-delay="210">
 
-<div class="service-icon">📐</div>
+<div class="service-icon">
+<i class="fa-solid fa-ruler-combined"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 ارتودنسی
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 اصلاح نظم دندان‌ها و بهبود زیبایی لبخند
@@ -1745,13 +3165,17 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up">
 
-<div class="service-icon">💎</div>
+<div class="service-icon">
+<i class="fa-solid fa-sparkles"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 بلیچینگ
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 سفید کردن حرفه‌ای و اصولی دندان‌ها
@@ -1760,13 +3184,17 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up" data-aos-delay="70">
 
-<div class="service-icon">🔬</div>
+<div class="service-icon">
+<i class="fa-solid fa-microscope"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 درمان ریشه
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 درمان دقیق ریشه و حفظ دندان طبیعی
@@ -1775,13 +3203,17 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up" data-aos-delay="140">
 
-<div class="service-icon">🛡️</div>
+<div class="service-icon">
+<i class="fa-solid fa-shield-heart"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 درمان لثه
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 حفظ سلامت لثه و بافت‌های نگهدارنده
@@ -1790,19 +3222,24 @@ decoding="async">
 </div>
 
 
-<div class="card text-center">
+<div class="card service-card text-center" data-aos="fade-up" data-aos-delay="210">
 
-<div class="service-icon">👶</div>
+<div class="service-icon">
+<i class="fa-solid fa-child-reaching"></i>
+</div>
 
-<h3 class="font-black text-lg mb-2">
+<h3 class="font-black text-lg">
 دندانپزشکی کودکان
 </h3>
+
+<div class="service-line"></div>
 
 <p class="text-sm text-gray-500 leading-7">
 مراقبت تخصصی و آرام برای کودکان
 </p>
 
 </div>
+
 
 </div>
 
@@ -1812,16 +3249,25 @@ decoding="async">
 
 
 <!-- =========================================================
-     WHY SEPIDAN
+     WHY
 ========================================================= -->
 
-<section class="py-16 bg-white">
+<section class="py-16 bg-white premium-section">
 
 <div class="container">
 
 <div class="grid lg:grid-cols-2 gap-10 items-center">
 
+
 <div data-aos="fade-up">
+
+<div class="inline-flex items-center gap-2 mb-3 text-xs font-bold text-[#A3831A]">
+
+<i class="fa-solid fa-star"></i>
+
+استاندارد متفاوت در درمان
+
+</div>
 
 <h2 class="section-title mb-5">
 چرا سپیدان؟
@@ -1837,6 +3283,7 @@ decoding="async">
 
 
 <div class="grid grid-cols-2 gap-4 mt-7">
+
 
 <div class="card text-center">
 
@@ -1889,6 +3336,7 @@ decoding="async">
 
 </div>
 
+
 </div>
 
 </div>
@@ -1896,14 +3344,21 @@ decoding="async">
 
 <div data-aos="fade-right">
 
+<div class="relative">
+
+<div class="absolute -inset-3 rounded-[32px] bg-gradient-to-br from-[#D4AF37]/10 to-[#2388D8]/5 blur-xl"></div>
+
 <img
 src="images/clinic/sepidan-clinic-tehrannnn.jpg"
 alt="کلینیک دندانپزشکی سپیدان تهران"
-class="rounded-[28px] w-full shadow-xl"
+class="relative rounded-[28px] w-full shadow-xl border border-[#D4AF37]/10"
 loading="lazy"
 decoding="async">
 
 </div>
+
+</div>
+
 
 </div>
 
@@ -1916,11 +3371,11 @@ decoding="async">
      DOCTORS
 ========================================================= -->
 
-<section id="doctors" class="py-16 bg-[#f7f9fb]">
+<section id="doctors" class="py-16 premium-section bg-[#F7F9FB]">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
 
 <h2 class="section-title">
 تیم پزشکی سپیدان
@@ -1937,64 +3392,110 @@ decoding="async">
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
-<div class="card text-center">
+<div class="card doctor-card" data-aos="fade-up">
+
+<div class="doctor-photo">
 
 <img
 src="images/clinic/dr-naseri-dentist-tehran.jpg"
-class="w-full h-72 object-cover rounded-2xl mb-5"
 alt="دکتر علیرضا ناصری"
 loading="lazy"
 decoding="async">
 
-<h3 class="font-black text-lg">
+<div class="doctor-badge">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+متخصص دندانپزشکی
+
+</div>
+
+<div class="doctor-info">
+
+<h3>
 دکتر علیرضا ناصری
 </h3>
 
-<p class="text-gray-500 text-sm mt-2">
+<p>
 متخصص دندانپزشکی
 </p>
 
 </div>
 
+</div>
 
-<div class="card text-center">
+</div>
+
+
+<div class="card doctor-card" data-aos="fade-up" data-aos-delay="100">
+
+<div class="doctor-photo">
 
 <img
 src="images/clinic/dr-salimzadeh-dentist-tehran.jpg"
-class="w-full h-72 object-cover rounded-2xl mb-5"
 alt="خانم دکتر سلیم زاده"
 loading="lazy"
 decoding="async">
 
-<h3 class="font-black text-lg">
+<div class="doctor-badge">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+متخصص دندانپزشکی
+
+</div>
+
+<div class="doctor-info">
+
+<h3>
 خانم دکتر سلیم زاده
 </h3>
 
-<p class="text-gray-500 text-sm mt-2">
+<p>
 متخصص دندانپزشکی
 </p>
 
 </div>
 
+</div>
 
-<div class="card text-center">
+</div>
+
+
+<div class="card doctor-card" data-aos="fade-up" data-aos-delay="200">
+
+<div class="doctor-photo">
 
 <img
 src="https://images.unsplash.com/photo-1594824476967-48c8b964273f"
-class="w-full h-72 object-cover rounded-2xl mb-5"
 alt="خانم دکتر رمضانی"
 loading="lazy"
 decoding="async">
 
-<h3 class="font-black text-lg">
+<div class="doctor-badge">
+
+<i class="fa-solid fa-user-doctor"></i>
+
+متخصص دندانپزشکی
+
+</div>
+
+<div class="doctor-info">
+
+<h3>
 خانم دکتر رمضانی
 </h3>
 
-<p class="text-gray-500 text-sm mt-2">
+<p>
 متخصص دندانپزشکی
 </p>
 
 </div>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -2007,11 +3508,11 @@ decoding="async">
      BEFORE AFTER
 ========================================================= -->
 
-<section class="py-16 bg-white">
+<section class="py-16 bg-white premium-section">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
 
 <h2 class="section-title">
 نمونه نتایج درمان
@@ -2027,11 +3528,17 @@ decoding="async">
 <div class="grid lg:grid-cols-2 gap-7">
 
 
-<div class="card">
+<div class="card" data-aos="fade-up">
 
-<h3 class="text-center font-black text-xl mb-5">
+<div class="flex items-center justify-center gap-2 mb-5">
+
+<i class="fa-solid fa-wand-magic-sparkles text-[#C9A227]"></i>
+
+<h3 class="text-center font-black text-xl">
 قبل و بعد لمینیت
 </h3>
+
+</div>
 
 <div class="before-after">
 
@@ -2054,26 +3561,43 @@ decoding="async">
 <div class="before-after-line"></div>
 
 <div class="before-after-button">
+
 <i class="fa-solid fa-arrows-left-right"></i>
+
 </div>
 
 </div>
 
 <div class="flex justify-between text-xs text-gray-500 mt-3">
-<span>قبل</span>
-<span>بعد</span>
-</div>
+
+<span>
+قبل
+</span>
+
+<span>
+بعد
+</span>
 
 </div>
 
+</div>
 
-<div class="card">
 
-<h3 class="text-center font-black text-xl mb-5">
+<div class="card" data-aos="fade-up" data-aos-delay="120">
+
+<div class="flex items-center justify-center gap-2 mb-5">
+
+<i class="fa-solid fa-sparkles text-[#C9A227]"></i>
+
+<h3 class="text-center font-black text-xl">
 قبل و بعد بلیچینگ
 </h3>
 
+</div>
+
 <div class="grid grid-cols-2 gap-3">
+
+<div class="relative overflow-hidden rounded-xl">
 
 <img
 src="images/clinic/sepidan-clinic-bilich.jpg"
@@ -2082,6 +3606,14 @@ class="rounded-xl w-full h-64 object-cover"
 loading="lazy"
 decoding="async">
 
+<div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] rounded-full px-3 py-1">
+قبل
+</div>
+
+</div>
+
+<div class="relative overflow-hidden rounded-xl">
+
 <img
 src="images/clinic/sepidan-clinic-bilich1.jpg"
 alt="بعد بلیچینگ"
@@ -2089,14 +3621,16 @@ class="rounded-xl w-full h-64 object-cover"
 loading="lazy"
 decoding="async">
 
-</div>
-
-<div class="flex justify-between text-xs text-gray-500 mt-3">
-<span>قبل</span>
-<span>بعد</span>
+<div class="absolute bottom-2 right-2 bg-[#D4AF37] text-[#071A36] text-[10px] rounded-full px-3 py-1 font-bold">
+بعد
 </div>
 
 </div>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -2109,11 +3643,19 @@ decoding="async">
      GALLERY
 ========================================================= -->
 
-<section id="gallery" class="py-16 bg-[#f7f9fb]">
+<section id="gallery" class="py-16 premium-section bg-[#F7F9FB]">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
+
+<div class="inline-flex items-center gap-2 text-xs text-[#A3831A] font-bold mb-2">
+
+<i class="fa-solid fa-camera"></i>
+
+فضای واقعی کلینیک
+
+</div>
 
 <h2 class="section-title">
 گالری کلینیک
@@ -2126,28 +3668,70 @@ decoding="async">
 </div>
 
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 gallery-grid">
+
+
+<div
+class="gallery-item"
+data-gallery-index="0"
+data-aos="fade-up">
 
 <img
 src="images/gallery1.png"
-class="gallery-img w-full h-48 md:h-64 object-cover rounded-2xl shadow"
-alt="گالری کلینیک"
+alt="گالری کلینیک سپیدان"
 loading="lazy"
 decoding="async">
+
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
+
+
+<div
+class="gallery-item"
+data-gallery-index="1"
+data-aos="fade-up"
+data-aos-delay="100">
 
 <img
 src="images/gallery2.png"
-class="gallery-img w-full h-48 md:h-64 object-cover rounded-2xl shadow"
-alt="گالری کلینیک"
+alt="گالری کلینیک سپیدان"
 loading="lazy"
 decoding="async">
 
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
+
+
+<div
+class="gallery-item"
+data-gallery-index="2"
+data-aos="fade-up"
+data-aos-delay="200">
+
 <img
 src="images/gallery3.png"
-class="gallery-img w-full h-48 md:h-64 object-cover rounded-2xl shadow"
-alt="گالری کلینیک"
+alt="گالری کلینیک سپیدان"
 loading="lazy"
 decoding="async">
+
+<div class="gallery-overlay">
+
+<i class="fa-solid fa-expand"></i>
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -2160,11 +3744,19 @@ decoding="async">
      BLOG
 ========================================================= -->
 
-<section id="blog" class="py-16 bg-white">
+<section id="blog" class="py-16 bg-white premium-section">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
+
+<div class="inline-flex items-center gap-2 text-xs text-[#A3831A] font-bold mb-2">
+
+<i class="fa-solid fa-book-medical"></i>
+
+مجله سپیدان
+
+</div>
 
 <h2 class="section-title">
 مقالات آموزشی
@@ -2192,11 +3784,11 @@ class="grid md:grid-cols-3 gap-6">
      FAQ
 ========================================================= -->
 
-<section id="faq" class="py-16 bg-[#f7f9fb]">
+<section id="faq" class="py-16 premium-section bg-[#F7F9FB]">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
 
 <h2 class="section-title">
 سوالات متداول
@@ -2220,9 +3812,11 @@ class="grid md:grid-cols-3 gap-6">
 class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold"
 type="button">
 
-<span>آیا ایمپلنت درد دارد؟</span>
+<span>
+آیا ایمپلنت درد دارد؟
+</span>
 
-<i class="fa-solid fa-plus"></i>
+<i class="fa-solid fa-plus text-[#C9A227]"></i>
 
 </button>
 
@@ -2242,9 +3836,11 @@ type="button">
 class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold"
 type="button">
 
-<span>طول عمر لمینت چقدر است؟</span>
+<span>
+طول عمر لمینت چقدر است؟
+</span>
 
-<i class="fa-solid fa-plus"></i>
+<i class="fa-solid fa-plus text-[#C9A227]"></i>
 
 </button>
 
@@ -2264,9 +3860,11 @@ type="button">
 class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold"
 type="button">
 
-<span>هزینه ایمپلنت چگونه محاسبه می‌شود؟</span>
+<span>
+هزینه ایمپلنت چگونه محاسبه می‌شود؟
+</span>
 
-<i class="fa-solid fa-plus"></i>
+<i class="fa-solid fa-plus text-[#C9A227]"></i>
 
 </button>
 
@@ -2286,9 +3884,11 @@ type="button">
 class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold"
 type="button">
 
-<span>آیا امکان پرداخت اقساطی وجود دارد؟</span>
+<span>
+آیا امکان پرداخت اقساطی وجود دارد؟
+</span>
 
-<i class="fa-solid fa-plus"></i>
+<i class="fa-solid fa-plus text-[#C9A227]"></i>
 
 </button>
 
@@ -2302,6 +3902,7 @@ type="button">
 
 </div>
 
+
 </div>
 
 
@@ -2309,9 +3910,19 @@ type="button">
 
 <div class="card">
 
-<h3 class="text-xl font-black text-center mb-3 text-[#0B2D5C]">
+<div class="text-center mb-4">
+
+<div class="mx-auto w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br from-[#FBF1C7] to-[#D4AF37] text-[#5D4606] mb-3">
+
+<i class="fa-solid fa-comments"></i>
+
+</div>
+
+<h3 class="text-xl font-black text-[#0B2D5C]">
 سوالی دارید؟
 </h3>
+
+</div>
 
 <p class="text-center text-gray-500 mb-5 text-sm leading-7">
 اگر پاسخ خود را پیدا نکردید، سوالتان را ارسال کنید.
@@ -2335,6 +3946,8 @@ class="form-input resize-none"></textarea>
 class="btn-gold w-full"
 type="submit">
 
+<i class="fa-solid fa-paper-plane"></i>
+
 ارسال سوال
 
 </button>
@@ -2356,11 +3969,19 @@ type="submit">
      TESTIMONIALS
 ========================================================= -->
 
-<section class="py-16 bg-white">
+<section class="py-16 bg-white premium-section">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
+
+<div class="inline-flex items-center gap-2 text-xs text-[#A3831A] font-bold mb-2">
+
+<i class="fa-solid fa-star"></i>
+
+تجربه مراجعین
+
+</div>
 
 <h2 class="section-title">
 نظرات بیماران
@@ -2380,9 +4001,15 @@ type="submit">
 
 <div class="swiper-slide">
 
-<div class="card text-center max-w-xl mx-auto">
+<div class="card testimonial-card text-center">
 
-<div class="text-[#D4AF37] text-lg mb-4">
+<div class="testimonial-quote">
+
+<i class="fa-solid fa-quote-right"></i>
+
+</div>
+
+<div class="testimonial-stars text-lg mb-4">
 ★★★★★
 </div>
 
@@ -2390,8 +4017,12 @@ type="submit">
 از برخورد پرسنل و کیفیت درمان کاملاً راضی بودم.
 </p>
 
-<div class="font-bold mt-4">
+<div class="font-bold mt-4 text-[#0B2D5C]">
 بیمار سپیدان
+</div>
+
+<div class="text-[10px] text-gray-400 mt-1">
+مراجعه‌کننده کلینیک
 </div>
 
 </div>
@@ -2401,9 +4032,15 @@ type="submit">
 
 <div class="swiper-slide">
 
-<div class="card text-center max-w-xl mx-auto">
+<div class="card testimonial-card text-center">
 
-<div class="text-[#D4AF37] text-lg mb-4">
+<div class="testimonial-quote">
+
+<i class="fa-solid fa-quote-right"></i>
+
+</div>
+
+<div class="testimonial-stars text-lg mb-4">
 ★★★★★
 </div>
 
@@ -2411,8 +4048,12 @@ type="submit">
 ایمپلنت من بدون درد انجام شد و نتیجه عالی بود.
 </p>
 
-<div class="font-bold mt-4">
+<div class="font-bold mt-4 text-[#0B2D5C]">
 بیمار سپیدان
+</div>
+
+<div class="text-[10px] text-gray-400 mt-1">
+مراجعه‌کننده کلینیک
 </div>
 
 </div>
@@ -2422,9 +4063,15 @@ type="submit">
 
 <div class="swiper-slide">
 
-<div class="card text-center max-w-xl mx-auto">
+<div class="card testimonial-card text-center">
 
-<div class="text-[#D4AF37] text-lg mb-4">
+<div class="testimonial-quote">
+
+<i class="fa-solid fa-quote-right"></i>
+
+</div>
+
+<div class="testimonial-stars text-lg mb-4">
 ★★★★★
 </div>
 
@@ -2432,8 +4079,12 @@ type="submit">
 محیط بسیار تمیز و حرفه‌ای بود.
 </p>
 
-<div class="font-bold mt-4">
+<div class="font-bold mt-4 text-[#0B2D5C]">
 بیمار سپیدان
+</div>
+
+<div class="text-[10px] text-gray-400 mt-1">
+مراجعه‌کننده کلینیک
 </div>
 
 </div>
@@ -2443,9 +4094,15 @@ type="submit">
 
 <div class="swiper-slide">
 
-<div class="card text-center max-w-xl mx-auto">
+<div class="card testimonial-card text-center">
 
-<div class="text-[#D4AF37] text-lg mb-4">
+<div class="testimonial-quote">
+
+<i class="fa-solid fa-quote-right"></i>
+
+</div>
+
+<div class="testimonial-stars text-lg mb-4">
 ★★★★★
 </div>
 
@@ -2453,8 +4110,12 @@ type="submit">
 فضای نشستن کمی محدود بود ولی در کل تجربه خوبی داشتم.
 </p>
 
-<div class="font-bold mt-4">
+<div class="font-bold mt-4 text-[#0B2D5C]">
 بیمار سپیدان
+</div>
+
+<div class="text-[10px] text-gray-400 mt-1">
+مراجعه‌کننده کلینیک
 </div>
 
 </div>
@@ -2464,9 +4125,15 @@ type="submit">
 
 <div class="swiper-slide">
 
-<div class="card text-center max-w-xl mx-auto">
+<div class="card testimonial-card text-center">
 
-<div class="text-[#D4AF37] text-lg mb-4">
+<div class="testimonial-quote">
+
+<i class="fa-solid fa-quote-right"></i>
+
+</div>
+
+<div class="testimonial-stars text-lg mb-4">
 ★★★★★
 </div>
 
@@ -2474,8 +4141,12 @@ type="submit">
 پزشکان جوان، خوش‌برخورد و بسیار صبور هستند.
 </p>
 
-<div class="font-bold mt-4">
+<div class="font-bold mt-4 text-[#0B2D5C]">
 بیمار سپیدان
+</div>
+
+<div class="text-[10px] text-gray-400 mt-1">
+مراجعه‌کننده کلینیک
 </div>
 
 </div>
@@ -2495,16 +4166,16 @@ type="submit">
 
 
 <!-- =========================================================
-     CTA
+     PREMIUM CTA
 ========================================================= -->
 
-<section class="py-16 bg-[#0B2D5C] text-white">
+<section class="premium-cta py-16 text-white">
 
 <div class="container">
 
 <div class="max-w-3xl mx-auto text-center">
 
-<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-xs mb-5">
+<div class="cta-badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mb-5">
 
 <i class="fa-solid fa-calendar-check text-[#D4AF37]"></i>
 
@@ -2513,11 +4184,15 @@ type="submit">
 </div>
 
 <h2 class="text-3xl md:text-4xl font-black mb-4">
+
 برای شروع لبخند جدیدتان آماده‌اید؟
+
 </h2>
 
 <p class="text-white/70 text-sm md:text-base leading-8 mb-8">
+
 برای دریافت مشاوره و هماهنگی نوبت، فرم زیر را تکمیل کنید.
+
 </p>
 
 
@@ -2543,6 +4218,8 @@ required>
 class="btn-gold"
 type="submit">
 
+<i class="fa-brands fa-whatsapp"></i>
+
 ارسال درخواست
 
 </button>
@@ -2560,11 +4237,11 @@ type="submit">
      CONTACT
 ========================================================= -->
 
-<section id="contact" class="py-16 bg-white">
+<section id="contact" class="py-16 bg-white premium-section">
 
 <div class="container">
 
-<div class="text-center mb-10">
+<div class="text-center mb-10" data-aos="fade-up">
 
 <h2 class="section-title">
 تماس با ما
@@ -2580,10 +4257,14 @@ type="submit">
 <div class="grid lg:grid-cols-2 gap-7">
 
 
-<div class="dark-box rounded-[28px] p-7 md:p-9 text-white">
+<div
+class="dark-box rounded-[28px] p-7 md:p-9 text-white"
+data-aos="fade-left">
 
 <h3 class="font-black text-2xl text-[#F7E7A9] mb-7">
+
 اطلاعات تماس
+
 </h3>
 
 
@@ -2592,7 +4273,7 @@ type="submit">
 
 <div class="flex items-center gap-4">
 
-<div class="w-11 h-11 rounded-full bg-[#D4AF37] text-[#0B2D5C] flex items-center justify-center">
+<div class="contact-icon">
 
 <i class="fa-solid fa-phone"></i>
 
@@ -2611,7 +4292,7 @@ class="hover:text-[#D4AF37] transition">
 
 <div class="flex items-center gap-4">
 
-<div class="w-11 h-11 rounded-full bg-[#D4AF37] text-[#0B2D5C] flex items-center justify-center">
+<div class="contact-icon">
 
 <i class="fa-solid fa-phone"></i>
 
@@ -2630,7 +4311,7 @@ class="hover:text-[#D4AF37] transition">
 
 <div class="flex items-center gap-4">
 
-<div class="w-11 h-11 rounded-full bg-[#D4AF37] text-[#0B2D5C] flex items-center justify-center">
+<div class="contact-icon">
 
 <i class="fa-solid fa-mobile-screen"></i>
 
@@ -2649,7 +4330,7 @@ class="hover:text-[#D4AF37] transition">
 
 <div class="flex items-start gap-4">
 
-<div class="w-11 h-11 rounded-full bg-[#D4AF37] text-[#0B2D5C] flex items-center justify-center flex-shrink-0">
+<div class="contact-icon flex-shrink-0">
 
 <i class="fa-solid fa-location-dot"></i>
 
@@ -2668,7 +4349,7 @@ class="hover:text-[#D4AF37] transition">
 
 <div class="flex items-center gap-4">
 
-<div class="w-11 h-11 rounded-full bg-[#D4AF37] text-[#0B2D5C] flex items-center justify-center">
+<div class="contact-icon">
 
 <i class="fa-brands fa-instagram"></i>
 
@@ -2679,6 +4360,7 @@ class="hover:text-[#D4AF37] transition">
 </span>
 
 </div>
+
 
 </div>
 
@@ -2698,19 +4380,20 @@ class="mt-8 btn-gold">
 </div>
 
 
-<div>
+<div data-aos="fade-right">
 
 <iframe
 src="https://www.google.com/maps?q=35.7356098,51.4867056&z=17&output=embed"
 width="100%"
 height="100%"
-class="min-h-[430px] rounded-[28px] shadow-xl"
+class="contact-map min-h-[430px] rounded-[28px]"
 style="border:0;"
 loading="lazy"
 title="موقعیت کلینیک دندانپزشکی سپیدان">
 </iframe>
 
 </div>
+
 
 </div>
 
@@ -2723,9 +4406,9 @@ title="موقعیت کلینیک دندانپزشکی سپیدان">
      FOOTER
 ========================================================= -->
 
-<footer class="bg-[#071A36] text-white py-9">
+<footer class="premium-footer text-white py-9">
 
-<div class="container text-center">
+<div class="container text-center relative z-10">
 
 <img
 class="h-16 mx-auto mb-4 object-contain"
@@ -2747,6 +4430,7 @@ loading="lazy">
 href="https://www.instagram.com/sepidan_dental_official"
 target="_blank"
 rel="noopener noreferrer"
+aria-label="اینستاگرام"
 class="hover:text-[#D4AF37] transition">
 
 <i class="fa-brands fa-instagram"></i>
@@ -2757,6 +4441,7 @@ class="hover:text-[#D4AF37] transition">
 href="https://eitaa.com/sepidandental"
 target="_blank"
 rel="noopener noreferrer"
+aria-label="ایتا"
 class="hover:text-[#D4AF37] transition">
 
 <i class="fa-solid fa-paper-plane"></i>
@@ -2767,6 +4452,7 @@ class="hover:text-[#D4AF37] transition">
 href="https://ble.ir/sepidanclinic"
 target="_blank"
 rel="noopener noreferrer"
+aria-label="بله"
 class="hover:text-[#D4AF37] transition">
 
 <i class="fa-solid fa-comment"></i>
@@ -2859,13 +4545,13 @@ loading="lazy">
 ========================================================= -->
 
 <div
-class="md:hidden fixed bottom-0 left-0 right-0 z-[998] bg-white border-t shadow-2xl p-2">
+class="mobile-cta md:hidden fixed bottom-0 left-0 right-0 z-[998] p-2">
 
 <div class="grid grid-cols-2 gap-2">
 
 <a
 href="tel:+982177270136"
-class="flex items-center justify-center gap-2 rounded-xl bg-[#0B2D5C] text-white py-3 text-sm font-bold">
+class="flex items-center justify-center gap-2 rounded-xl bg-[#071A36] text-white py-3 text-sm font-bold">
 
 <i class="fa-solid fa-phone"></i>
 
@@ -2875,7 +4561,7 @@ class="flex items-center justify-center gap-2 rounded-xl bg-[#0B2D5C] text-white
 
 <a
 href="#contact"
-class="flex items-center justify-center gap-2 rounded-xl bg-[#D4AF37] text-[#0B2D5C] py-3 text-sm font-bold">
+class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-[#C9A227] via-[#F5E6A8] to-[#C9A227] text-[#0B2D5C] py-3 text-sm font-black">
 
 <i class="fa-solid fa-calendar-check"></i>
 
@@ -2889,28 +4575,58 @@ class="flex items-center justify-center gap-2 rounded-xl bg-[#D4AF37] text-[#0B2
 
 
 <!-- =========================================================
-     GALLERY MODAL
+     GALLERY LIGHTBOX
 ========================================================= -->
 
 <div
 id="imageModal"
-class="fixed inset-0 z-[9999] hidden items-center justify-center modal-bg p-4">
+class="fixed inset-0 z-[9999] hidden items-center justify-center modal-bg p-4"
+role="dialog"
+aria-modal="true"
+aria-label="نمایش تصویر گالری">
+
+<div class="premium-modal-content w-full max-w-6xl p-2 md:p-3">
 
 <button
 id="closeImageModal"
 type="button"
-class="absolute top-4 right-4 w-11 h-11 rounded-full bg-white text-gray-800 text-2xl shadow-xl z-10"
+class="modal-close absolute top-3 right-3 md:top-5 md:right-5 w-11 h-11 rounded-full text-2xl z-20"
 aria-label="بستن تصویر">
 
-&times;
+<i class="fa-solid fa-xmark"></i>
 
 </button>
+
+
+<button
+id="galleryPrev"
+type="button"
+class="lightbox-nav lightbox-prev"
+aria-label="تصویر قبلی">
+
+<i class="fa-solid fa-chevron-right"></i>
+
+</button>
+
 
 <img
 id="modalImage"
 src=""
 alt="تصویر گالری"
-class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl">
+class="mx-auto max-w-full max-h-[88vh] object-contain rounded-[18px] shadow-2xl">
+
+
+<button
+id="galleryNext"
+type="button"
+class="lightbox-nav lightbox-next"
+aria-label="تصویر بعدی">
+
+<i class="fa-solid fa-chevron-left"></i>
+
+</button>
+
+</div>
 
 </div>
 
@@ -2928,16 +4644,16 @@ aria-modal="true"
 aria-label="تعرفه خدمات دندانپزشکی">
 
 <div
-class="relative max-w-5xl w-full max-h-[95vh] flex items-center justify-center"
+class="premium-modal-content max-w-5xl w-full max-h-[95vh] flex items-center justify-center p-2"
 onclick="event.stopPropagation()">
 
 <button
 type="button"
 onclick="closeTarife()"
-class="absolute top-2 right-2 md:top-4 md:right-4 z-10 w-11 h-11 rounded-full bg-white text-gray-800 text-3xl font-bold shadow-xl"
+class="modal-close absolute top-2 right-2 md:top-4 md:right-4 z-10 w-11 h-11 rounded-full text-3xl font-bold"
 aria-label="بستن تعرفه">
 
-&times;
+<i class="fa-solid fa-xmark text-lg"></i>
 
 </button>
 
@@ -2983,59 +4699,61 @@ if(
     heroElement
 ){
 
-    const heroSwiper = new Swiper(
-        ".mySwiper",
-        {
-            loop:true,
+    const heroSwiper =
+        new Swiper(
+            ".mySwiper",
+            {
+                loop:true,
 
-            effect:"slide",
+                effect:"slide",
 
-            speed:650,
+                speed:650,
 
-            slidesPerView:1,
+                slidesPerView:1,
 
-            slidesPerGroup:1,
+                slidesPerGroup:1,
 
-            spaceBetween:0,
+                spaceBetween:0,
 
-            centeredSlides:false,
+                centeredSlides:false,
 
-            observer:true,
+                observer:true,
 
-            observeParents:true,
+                observeParents:true,
 
-            observeSlideChildren:true,
+                observeSlideChildren:true,
 
-            watchOverflow:true,
+                watchOverflow:true,
 
-            autoplay:{
-                delay:4500,
-                disableOnInteraction:false,
-                pauseOnMouseEnter:true
-            },
+                preloadImages:true,
 
-            pagination:{
-                el:".mySwiper .swiper-pagination",
-                clickable:true
-            },
+                autoplay:{
+                    delay:4500,
+                    disableOnInteraction:false,
+                    pauseOnMouseEnter:false
+                },
 
-            on:{
-                init:function(){
-                    requestAnimationFrame(()=>{
-                        this.update();
-                    });
+                pagination:{
+                    el:".mySwiper .swiper-pagination",
+                    clickable:true
+                },
+
+                on:{
+                    init:function(){
+
+                        requestAnimationFrame(()=>{
+                            this.update();
+                        });
+
+                    }
                 }
             }
-        }
-    );
+        );
 
-    /*
-      بعد از لود تصاویر Hero یک update انجام می‌دهیم
-      تا عرض اسلایدها در موبایل دقیق محاسبه شود.
-    */
 
     const heroImages =
         heroElement.querySelectorAll("img");
+
 
     heroImages.forEach(function(img){
 
@@ -3048,7 +4766,9 @@ if(
             img.addEventListener(
                 "load",
                 function(){
+
                     heroSwiper.update();
+
                 },
                 {once:true}
             );
@@ -3065,7 +4785,9 @@ if(
 ========================================================= */
 
 const testimonialElement =
-    document.querySelector(".testimonialSwiper");
+    document.querySelector(
+        ".testimonialSwiper"
+    );
 
 if(
     typeof Swiper !== "undefined" &&
@@ -3075,19 +4797,26 @@ if(
     new Swiper(
         ".testimonialSwiper",
         {
+
             loop:true,
+
+            slidesPerView:1,
+
+            spaceBetween:20,
+
+            speed:650,
 
             autoplay:{
                 delay:4500,
-                disableOnInteraction:false
+                disableOnInteraction:false,
+                pauseOnMouseEnter:true
             },
 
             pagination:{
                 el:".testimonialSwiper .swiper-pagination",
                 clickable:true
-            },
+            }
 
-            spaceBetween:20
         }
     );
 
@@ -3101,9 +4830,133 @@ if(
 if(typeof AOS !== "undefined"){
 
     AOS.init({
-        duration:700,
+
+        duration:750,
+
         once:true,
-        offset:80
+
+        offset:70,
+
+        easing:"ease-out-cubic",
+
+        disable:function(){
+
+            return window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+const counters =
+    document.querySelectorAll(
+        ".counter"
+    );
+
+function animateCounter(el){
+
+    const target =
+        Number(
+            el.dataset.target || 0
+        );
+
+    const suffix =
+        el.dataset.suffix || "";
+
+    const duration = 1300;
+
+    const startTime =
+        performance.now();
+
+
+    function update(now){
+
+        const progress =
+            Math.min(
+                (now-startTime)/duration,
+                1
+            );
+
+        const eased =
+            1-Math.pow(
+                1-progress,
+                3
+            );
+
+        const value =
+            Math.floor(
+                target*eased
+            );
+
+        el.textContent =
+            value.toLocaleString(
+                "fa-IR"
+            ) + suffix;
+
+
+        if(progress < 1){
+
+            requestAnimationFrame(update);
+
+        }else{
+
+            el.textContent =
+                target.toLocaleString(
+                    "fa-IR"
+                ) + suffix;
+
+        }
+
+    }
+
+    requestAnimationFrame(update);
+
+}
+
+
+if(counters.length){
+
+    const counterObserver =
+        new IntersectionObserver(
+            function(entries,observer){
+
+                entries.forEach(entry=>{
+
+                    if(entry.isIntersecting){
+
+                        animateCounter(
+                            entry.target
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:.4
+            }
+        );
+
+
+    counters.forEach(counter=>{
+
+        counterObserver.observe(
+            counter
+        );
+
     });
 
 }
@@ -3126,33 +4979,66 @@ if(
 
     blogContainer.innerHTML="";
 
-    posts.slice(0,6).forEach(post=>{
 
-        blogContainer.innerHTML += `
+    posts.slice(0,6).forEach(
+        (post,index)=>{
 
-        <a
-        href="${post.url}"
-        class="card block">
+            blogContainer.innerHTML += `
 
-            <img
-            src="${post.image}"
-            class="rounded-2xl mb-4 w-full h-52 object-cover"
-            alt="${post.title}"
-            loading="lazy">
+            <a
+            href="${post.url}"
+            class="card block"
+            data-aos="fade-up"
+            data-aos-delay="${index*70}">
 
-            <h3 class="font-black text-lg mb-2">
-                ${post.title}
-            </h3>
+                <div class="overflow-hidden rounded-2xl mb-4">
 
-            <p class="text-gray-500 text-sm leading-7">
-                ${post.desc}
-            </p>
+                    <img
+                    src="${post.image}"
+                    class="w-full h-52 object-cover transition duration-500 hover:scale-105"
+                    alt="${post.title}"
+                    loading="lazy"
+                    decoding="async">
 
-        </a>
+                </div>
 
-        `;
+                <div class="flex items-center gap-2 text-[10px] text-[#A3831A] font-bold mb-2">
 
-    });
+                    <i class="fa-solid fa-book-open"></i>
+
+                    مقاله آموزشی
+
+                </div>
+
+                <h3 class="font-black text-lg mb-2">
+                    ${post.title}
+                </h3>
+
+                <p class="text-gray-500 text-sm leading-7">
+                    ${post.desc}
+                </p>
+
+                <div class="mt-4 text-[#A3831A] text-xs font-bold flex items-center gap-2">
+
+                    مطالعه مقاله
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                </div>
+
+            </a>
+
+            `;
+
+        }
+    );
+
+
+    if(typeof AOS !== "undefined"){
+
+        AOS.refresh();
+
+    }
 
 }
 
@@ -3162,10 +5048,15 @@ if(
 ========================================================= */
 
 const menuBtn =
-    document.getElementById("menuBtn");
+    document.getElementById(
+        "menuBtn"
+    );
 
 const mobileMenu =
-    document.getElementById("mobileMenu");
+    document.getElementById(
+        "mobileMenu"
+    );
+
 
 if(menuBtn && mobileMenu){
 
@@ -3178,15 +5069,23 @@ if(menuBtn && mobileMenu){
                     "hidden"
                 );
 
+
             mobileMenu.classList.toggle(
                 "hidden"
             );
 
+
             document.body.style.overflow =
-                isOpen ? "" : "hidden";
+                isOpen
+                    ? ""
+                    : "hidden";
+
 
             const icon =
-                menuBtn.querySelector("i");
+                menuBtn.querySelector(
+                    "i"
+                );
+
 
             if(icon){
 
@@ -3218,8 +5117,12 @@ if(menuBtn && mobileMenu){
 
                     document.body.style.overflow="";
 
+
                     const icon =
-                        menuBtn.querySelector("i");
+                        menuBtn.querySelector(
+                            "i"
+                        );
+
 
                     if(icon){
 
@@ -3242,7 +5145,7 @@ if(menuBtn && mobileMenu){
 
 
 /* =========================================================
-   GALLERY
+   GALLERY LIGHTBOX
 ========================================================= */
 
 const modal =
@@ -3260,57 +5163,205 @@ const closeImage =
         "closeImageModal"
     );
 
-if(modal && modalImg){
+const galleryPrev =
+    document.getElementById(
+        "galleryPrev"
+    );
 
-    document
-        .querySelectorAll(".gallery-img")
-        .forEach(img=>{
+const galleryNext =
+    document.getElementById(
+        "galleryNext"
+    );
 
-            img.addEventListener(
-                "click",
-                function(){
 
-                    modalImg.src =
-                        this.src;
+const galleryItems =
+    Array.from(
+        document.querySelectorAll(
+            ".gallery-item"
+        )
+    );
 
-                    modal.classList.remove(
-                        "hidden"
-                    );
 
-                    modal.classList.add(
-                        "flex"
-                    );
+const galleryImages =
+    galleryItems.map(
+        item =>
+            item.querySelector("img")
+    );
 
-                    document.body.style.overflow =
-                        "hidden";
 
-                }
-            );
+let currentGalleryIndex=0;
+
+
+function showGalleryImage(index){
+
+    if(!modal || !modalImg) return;
+
+    if(!galleryImages.length) return;
+
+
+    currentGalleryIndex =
+        (
+            index +
+            galleryImages.length
+        ) %
+        galleryImages.length;
+
+
+    const image =
+        galleryImages[
+            currentGalleryIndex
+        ];
+
+
+    modalImg.style.opacity="0";
+
+    modalImg.style.transform=
+        "scale(.97)";
+
+
+    setTimeout(()=>{
+
+        modalImg.src =
+            image.src;
+
+        modalImg.alt =
+            image.alt || "تصویر گالری";
+
+
+        requestAnimationFrame(()=>{
+
+            modalImg.style.opacity="1";
+
+            modalImg.style.transform=
+                "scale(1)";
 
         });
 
+    },100);
+
+}
+
+
+function openGallery(index){
+
+    if(!modal) return;
+
+
+    showGalleryImage(index);
+
+
+    modal.classList.remove(
+        "hidden"
+    );
+
+    modal.classList.add(
+        "flex"
+    );
+
+
+    document.body.style.overflow=
+        "hidden";
+
+}
+
+
+function closeGallery(){
+
+    if(!modal) return;
+
+
+    modal.classList.remove(
+        "flex"
+    );
+
+    modal.classList.add(
+        "hidden"
+    );
+
+
+    document.body.style.overflow=
+        "";
+
+}
+
+
+galleryItems.forEach(
+    (item,index)=>{
+
+        item.addEventListener(
+            "click",
+            function(){
+
+                openGallery(index);
+
+            }
+        );
+
+    }
+);
+
+
+if(galleryPrev){
+
+    galleryPrev.addEventListener(
+        "click",
+        function(e){
+
+            e.stopPropagation();
+
+            showGalleryImage(
+                currentGalleryIndex-1
+            );
+
+        }
+    );
+
+}
+
+
+if(galleryNext){
+
+    galleryNext.addEventListener(
+        "click",
+        function(e){
+
+            e.stopPropagation();
+
+            showGalleryImage(
+                currentGalleryIndex+1
+            );
+
+        }
+    );
+
+}
+
+
+if(modal){
 
     modal.addEventListener(
         "click",
         function(e){
 
             if(
-                e.target===modal ||
-                e.target===closeImage
+                e.target===modal
             ){
 
-                modal.classList.remove(
-                    "flex"
-                );
+                closeGallery();
 
-                modal.classList.add(
-                    "hidden"
-                );
-
-                document.body.style.overflow="";
             }
 
         }
+    );
+
+}
+
+
+if(closeImage){
+
+    closeImage.addEventListener(
+        "click",
+        closeGallery
     );
 
 }
@@ -3325,6 +5376,7 @@ const beforeAfter =
         ".before-after"
     );
 
+
 if(beforeAfter){
 
     const after =
@@ -3332,39 +5384,54 @@ if(beforeAfter){
             ".after-image"
         );
 
+
     const line =
         beforeAfter.querySelector(
             ".before-after-line"
         );
+
 
     const button =
         beforeAfter.querySelector(
             ".before-after-button"
         );
 
+
     let dragging=false;
 
 
-    function updateBeforeAfter(clientX){
+    function updateBeforeAfter(
+        clientX
+    ){
 
         const rect =
             beforeAfter.getBoundingClientRect();
 
+
         let percent =
-            ((rect.right-clientX) /
-            rect.width) * 100;
+            (
+                (rect.right-clientX) /
+                rect.width
+            ) * 100;
+
 
         percent =
             Math.max(
                 5,
-                Math.min(95,percent)
+                Math.min(
+                    95,
+                    percent
+                )
             );
+
 
         after.style.width =
             percent+"%";
 
+
         line.style.right =
             percent+"%";
+
 
         button.style.right =
             percent+"%";
@@ -3378,11 +5445,15 @@ if(beforeAfter){
 
             dragging=true;
 
+
             try{
+
                 beforeAfter.setPointerCapture(
                     e.pointerId
                 );
+
             }catch(error){}
+
 
             updateBeforeAfter(
                 e.clientX
@@ -3396,7 +5467,8 @@ if(beforeAfter){
         "pointermove",
         function(e){
 
-            if(!dragging)return;
+            if(!dragging) return;
+
 
             updateBeforeAfter(
                 e.clientX
@@ -3429,7 +5501,7 @@ if(beforeAfter){
 
 
 /* =========================================================
-   ESC KEY
+   KEYBOARD / ESC
 ========================================================= */
 
 document.addEventListener(
@@ -3440,29 +5512,104 @@ document.addEventListener(
 
             closeTarife();
 
-            const gallery =
-                document.getElementById(
-                    "imageModal"
-                );
+            closeGallery();
 
-            if(gallery){
+        }
 
-                gallery.classList.remove(
-                    "flex"
-                );
 
-                gallery.classList.add(
-                    "hidden"
-                );
+        if(
+            e.key==="ArrowRight" &&
+            modal &&
+            !modal.classList.contains(
+                "hidden"
+            )
+        ){
 
-                document.body.style.overflow="";
+            showGalleryImage(
+                currentGalleryIndex-1
+            );
 
-            }
+        }
+
+
+        if(
+            e.key==="ArrowLeft" &&
+            modal &&
+            !modal.classList.contains(
+                "hidden"
+            )
+        ){
+
+            showGalleryImage(
+                currentGalleryIndex+1
+            );
 
         }
 
     }
 );
+
+
+/* =========================================================
+   SWIPE GALLERY MOBILE
+========================================================= */
+
+let touchStartX=0;
+
+
+if(modal){
+
+    modal.addEventListener(
+        "touchstart",
+        function(e){
+
+            touchStartX =
+                e.changedTouches[0].screenX;
+
+        },
+        {
+            passive:true
+        }
+    );
+
+
+    modal.addEventListener(
+        "touchend",
+        function(e){
+
+            const touchEndX =
+                e.changedTouches[0].screenX;
+
+
+            const diff =
+                touchStartX-touchEndX;
+
+
+            if(Math.abs(diff)<50)
+                return;
+
+
+            if(diff>0){
+
+                showGalleryImage(
+                    currentGalleryIndex+1
+                );
+
+            }else{
+
+                showGalleryImage(
+                    currentGalleryIndex-1
+                );
+
+            }
+
+        },
+        {
+            passive:true
+        }
+    );
+
+}
 
 });
 
@@ -3475,30 +5622,36 @@ function sendToWhatsApp(e){
 
     e.preventDefault();
 
+
     const form =
         e.target;
+
 
     const name =
         form.querySelector(
             'input[name="name"]'
         ).value;
 
+
     const phone =
         form.querySelector(
             'input[name="phone"]'
         ).value;
 
+
     const text =
-`📥 درخواست مشاوره دندانپزشکی
+`📥 درخواست مشاوره دندانپزشکی سپیدان
 
 👤 نام: ${name}
 
 📞 تلفن: ${phone}`;
 
+
     const url =
         `https://wa.me/989127933934?text=${
             encodeURIComponent(text)
         }`;
+
 
     window.open(
         url,
@@ -3516,25 +5669,32 @@ function sendToWhatsApp(e){
 function openTarife(event){
 
     if(event){
+
         event.preventDefault();
+
     }
+
 
     const modal =
         document.getElementById(
             "tarifeModal"
         );
 
-    if(!modal)return;
+
+    if(!modal) return;
+
 
     modal.classList.remove(
         "hidden"
     );
 
+
     modal.classList.add(
         "flex"
     );
 
-    document.body.style.overflow =
+
+    document.body.style.overflow=
         "hidden";
 
 }
@@ -3547,25 +5707,33 @@ function closeTarife(event){
         event.target !==
         event.currentTarget
     ){
+
         return;
+
     }
+
 
     const modal =
         document.getElementById(
             "tarifeModal"
         );
 
-    if(!modal)return;
+
+    if(!modal) return;
+
 
     modal.classList.add(
         "hidden"
     );
 
+
     modal.classList.remove(
         "flex"
     );
 
-    document.body.style.overflow="";
+
+    document.body.style.overflow=
+        "";
 
 }
 
