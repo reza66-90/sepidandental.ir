@@ -453,6 +453,600 @@ height:48px;
 }
 
 }
+   /* =========================================================
+   PREMIUM MOBILE FIX
+   ========================================================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden !important;
+}
+
+img{
+    max-width:100%;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* ---------- Mobile Header ---------- */
+
+@media (max-width: 767px){
+
+    .site-header{
+        background:rgba(255,255,255,.96);
+        backdrop-filter:blur(18px);
+        -webkit-backdrop-filter:blur(18px);
+    }
+
+    .site-header > .container{
+        min-height:68px;
+        padding-top:9px;
+        padding-bottom:9px;
+        gap:8px;
+    }
+
+    .site-header img{
+        height:42px;
+        max-width:120px;
+    }
+
+    .site-header .btn-gold{
+        padding:9px 11px;
+        border-radius:11px;
+        font-size:11px;
+        gap:5px;
+        white-space:nowrap;
+    }
+
+    #menuBtn{
+        width:42px;
+        height:42px;
+        min-width:42px;
+        border-radius:12px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:16px;
+    }
+
+    /* موبایل منو */
+
+    #mobileMenu{
+        max-height:calc(100vh - 68px);
+        overflow-y:auto;
+        overscroll-behavior:contain;
+    }
+
+    #mobileMenu .container{
+        padding-top:4px;
+        padding-bottom:12px;
+    }
+
+    #mobileMenu a{
+        padding:13px 4px;
+        font-size:14px;
+        font-weight:600;
+    }
+
+    /* ---------- Hero ---------- */
+
+    .hero{
+        padding-top:88px !important;
+        padding-bottom:25px !important;
+        background:
+            radial-gradient(
+                circle at 85% 8%,
+                rgba(212,175,55,.18),
+                transparent 28%
+            ),
+            linear-gradient(
+                145deg,
+                #06162d 0%,
+                #0B2D5C 55%,
+                #155b9e 100%
+            );
+    }
+
+    .hero > .container{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .hero .grid{
+        gap:14px !important;
+    }
+
+    .hero-card{
+        padding:22px 16px !important;
+        border-radius:22px !important;
+    }
+
+    .hero-card img{
+        height:78px !important;
+        margin-bottom:13px !important;
+    }
+
+    .hero-card > div:first-of-type{
+        font-size:10px;
+        padding:7px 11px;
+        margin-bottom:12px;
+    }
+
+    .hero-title{
+        font-size:27px !important;
+        line-height:1.55 !important;
+        margin-bottom:10px !important;
+    }
+
+    .hero-text{
+        font-size:13px !important;
+        line-height:2 !important;
+        margin-bottom:17px !important;
+    }
+
+    .hero-card .btn-gold,
+    .hero-card a:not(.btn-gold){
+        min-height:43px;
+        padding:9px 15px !important;
+        font-size:12px;
+    }
+
+    /* Hero image */
+
+    .hero .swiper{
+        height:245px !important;
+        border-radius:20px;
+    }
+
+    .hero .swiper-slide img{
+        height:245px !important;
+        object-fit:cover;
+    }
+
+    .hero .swiper-pagination{
+        bottom:8px !important;
+    }
+
+    .swiper-pagination-bullet{
+        width:6px;
+        height:6px;
+    }
+
+    .swiper-pagination-bullet-active{
+        width:20px;
+    }
+
+    /* ---------- Trust ---------- */
+
+    section.bg-white.py-6{
+        padding-top:12px !important;
+        padding-bottom:12px !important;
+    }
+
+    .trust-card{
+        min-height:72px;
+        padding:11px 7px !important;
+        border-radius:14px;
+    }
+
+    .trust-number{
+        font-size:19px !important;
+        line-height:1.4;
+    }
+
+    .trust-card .text-xs{
+        font-size:9px !important;
+    }
+
+    /* ---------- Sections ---------- */
+
+    section.py-16{
+        padding-top:42px !important;
+        padding-bottom:42px !important;
+    }
+
+    .container{
+        padding-left:14px !important;
+        padding-right:14px !important;
+    }
+
+    .section-title{
+        font-size:23px !important;
+        line-height:1.6 !important;
+        margin-bottom:7px !important;
+    }
+
+    .section-subtitle{
+        font-size:12px !important;
+        line-height:2 !important;
+        padding:0 8px;
+    }
+
+    .text-center.mb-10{
+        margin-bottom:24px !important;
+    }
+
+    /* ---------- Services ---------- */
+
+    #services .grid{
+        gap:10px !important;
+    }
+
+    #services .card{
+        padding:15px 10px !important;
+        border-radius:17px;
+        min-width:0;
+    }
+
+    .service-icon{
+        width:45px !important;
+        height:45px !important;
+        border-radius:13px;
+        font-size:19px;
+        margin-bottom:10px;
+    }
+
+    #services h3{
+        font-size:13px !important;
+        line-height:1.7;
+    }
+
+    #services p{
+        font-size:10px !important;
+        line-height:1.9 !important;
+    }
+
+    /* ---------- General Cards ---------- */
+
+    .card{
+        border-radius:17px;
+        padding:16px;
+    }
+
+    /* ---------- Why section ---------- */
+
+    .dark-box{
+        border-radius:20px !important;
+    }
+
+    /* ---------- Doctors ---------- */
+
+    #doctors .grid{
+        gap:12px !important;
+    }
+
+    #doctors .card{
+        padding:12px !important;
+    }
+
+    #doctors .card img{
+        height:230px !important;
+        border-radius:14px !important;
+        margin-bottom:12px !important;
+    }
+
+    #doctors h3{
+        font-size:14px !important;
+    }
+
+    #doctors p{
+        font-size:11px !important;
+    }
+
+    /* ---------- Before / After ---------- */
+
+    .before-after{
+        border-radius:16px;
+        touch-action:none;
+    }
+
+    .before-after img{
+        height:220px !important;
+    }
+
+    .before-after-button{
+        width:40px;
+        height:40px;
+        font-size:12px;
+    }
+
+    .before-after-line{
+        width:2px;
+    }
+
+    /* بلیچینگ */
+
+    section .grid.grid-cols-2 img{
+        min-width:0;
+    }
+
+    /* ---------- Gallery ---------- */
+
+    #gallery .grid{
+        gap:8px !important;
+    }
+
+    #gallery .gallery-img{
+        height:145px !important;
+        border-radius:13px !important;
+    }
+
+    /* ---------- Blog ---------- */
+
+    #home-blog-container{
+        grid-template-columns:1fr !important;
+        gap:12px !important;
+    }
+
+    #home-blog-container .card{
+        padding:11px !important;
+        border-radius:16px;
+    }
+
+    #home-blog-container img{
+        height:190px !important;
+        border-radius:12px !important;
+        margin-bottom:10px !important;
+    }
+
+    #home-blog-container h3{
+        font-size:14px !important;
+    }
+
+    #home-blog-container p{
+        font-size:11px !important;
+        line-height:2 !important;
+    }
+
+    /* ---------- FAQ ---------- */
+
+    #faq .card{
+        border-radius:15px !important;
+    }
+
+    .faq-btn{
+        padding:15px !important;
+        font-size:12px !important;
+        line-height:1.8;
+        gap:10px;
+    }
+
+    .faq-content{
+        padding-left:15px !important;
+        padding-right:15px !important;
+        padding-bottom:15px !important;
+        font-size:11px !important;
+        line-height:2 !important;
+    }
+
+    /* ---------- Testimonials ---------- */
+
+    .testimonialSwiper{
+        padding-bottom:28px;
+    }
+
+    .testimonialSwiper .card{
+        padding:18px !important;
+    }
+
+    .testimonialSwiper p{
+        font-size:12px !important;
+        line-height:2 !important;
+    }
+
+    /* ---------- CTA ---------- */
+
+    section.bg-\[\#0B2D5C\]{
+        padding-top:42px !important;
+        padding-bottom:45px !important;
+    }
+
+    section.bg-\[\#0B2D5C\] h2{
+        font-size:22px !important;
+        line-height:1.7;
+    }
+
+    section.bg-\[\#0B2D5C\] p{
+        font-size:12px !important;
+    }
+
+    section.bg-\[\#0B2D5C\] form{
+        grid-template-columns:1fr !important;
+        gap:8px !important;
+    }
+
+    section.bg-\[\#0B2D5C\] input,
+    section.bg-\[\#0B2D5C\] button{
+        min-height:45px;
+    }
+
+    /* ---------- Contact ---------- */
+
+    #contact .dark-box{
+        padding:20px !important;
+    }
+
+    #contact .dark-box h3{
+        font-size:19px !important;
+        margin-bottom:20px !important;
+    }
+
+    #contact .dark-box .w-11{
+        width:38px !important;
+        height:38px !important;
+        min-width:38px;
+    }
+
+    #contact .dark-box p,
+    #contact .dark-box a,
+    #contact .dark-box span{
+        font-size:11px !important;
+        line-height:2 !important;
+    }
+
+    #contact iframe{
+        min-height:280px !important;
+        height:280px !important;
+        border-radius:20px !important;
+    }
+
+    /* ---------- Footer ---------- */
+
+    footer{
+        padding-bottom:92px !important;
+    }
+
+    footer img{
+        height:55px !important;
+    }
+
+    footer h3{
+        font-size:16px !important;
+    }
+
+    footer p{
+        font-size:10px !important;
+    }
+
+    /* ---------- Floating buttons ---------- */
+
+    .floating-buttons{
+        left:8px !important;
+        bottom:76px !important;
+        gap:5px !important;
+    }
+
+    .floating-buttons img{
+        width:39px !important;
+        height:39px !important;
+    }
+
+    /* ---------- Mobile Bottom Bar ---------- */
+
+    body{
+        padding-bottom:0;
+    }
+
+    .md\:hidden.fixed.bottom-0{
+        padding:7px !important;
+        padding-bottom:
+            calc(7px + env(safe-area-inset-bottom)) !important;
+    }
+
+    .md\:hidden.fixed.bottom-0 a{
+        min-height:42px;
+        font-size:11px;
+        border-radius:11px;
+    }
+
+    /* ---------- Modals ---------- */
+
+    #imageModal,
+    #tarifeModal{
+        padding:10px !important;
+    }
+
+    #imageModal img,
+    #tarifeModal img{
+        max-width:96vw !important;
+        max-height:88vh !important;
+        border-radius:12px !important;
+    }
+
+    #imageModal button,
+    #tarifeModal button{
+        width:38px !important;
+        height:38px !important;
+        font-size:22px !important;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media(max-width:380px){
+
+    .site-header img{
+        height:37px;
+    }
+
+    .site-header .btn-gold{
+        padding:8px 8px;
+        font-size:10px;
+    }
+
+    #menuBtn{
+        width:38px;
+        min-width:38px;
+        height:38px;
+    }
+
+    .hero-title{
+        font-size:24px !important;
+    }
+
+    .hero .swiper,
+    .hero .swiper-slide img{
+        height:215px !important;
+    }
+
+    #services .card{
+        padding:12px 7px !important;
+    }
+
+    #services h3{
+        font-size:12px !important;
+    }
+
+    #services p{
+        font-size:9px !important;
+    }
+
+    .trust-number{
+        font-size:17px !important;
+    }
+
+}
+
+
+/* =========================================================
+   SAFE AREA FOR IPHONE
+   ========================================================= */
+
+@supports(padding:max(0px)){
+
+    .md\:hidden.fixed.bottom-0{
+        padding-bottom:
+            max(7px, env(safe-area-inset-bottom)) !important;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+
+}
 
 </style>
 
@@ -2194,63 +2788,54 @@ ${post.desc}
    MOBILE MENU
 ========================= */
 
-const menuBtn=
-document.getElementById("menuBtn");
-
-const mobileMenu=
-document.getElementById("mobileMenu");
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
 
 if(menuBtn && mobileMenu){
 
-menuBtn.addEventListener("click",function(){
+    menuBtn.addEventListener("click", function(){
 
-mobileMenu.classList.toggle("hidden");
+        const isOpen =
+            !mobileMenu.classList.contains("hidden");
 
-});
+        mobileMenu.classList.toggle("hidden");
 
-mobileMenu.querySelectorAll("a").forEach(link=>{
+        document.body.style.overflow =
+            isOpen ? "" : "hidden";
 
-link.addEventListener("click",function(){
+        const icon = menuBtn.querySelector("i");
 
-mobileMenu.classList.add("hidden");
+        if(icon){
 
-});
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-xmark");
 
-});
+        }
 
-}
+    });
 
+    mobileMenu.querySelectorAll("a").forEach(link => {
 
-/* =========================
-   FAQ
-========================= */
+        link.addEventListener("click", function(){
 
-document.querySelectorAll(".faq-btn").forEach(btn=>{
+            mobileMenu.classList.add("hidden");
 
-btn.addEventListener("click",function(){
+            document.body.style.overflow = "";
 
-const content=
-btn.nextElementSibling;
+            const icon = menuBtn.querySelector("i");
 
-const icon=
-btn.querySelector("i");
+            if(icon){
 
-if(content){
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
 
-content.classList.toggle("hidden");
+            }
 
-}
+        });
 
-if(icon){
-
-icon.classList.toggle("fa-plus");
-icon.classList.toggle("fa-minus");
+    });
 
 }
-
-});
-
-});
 
 
 /* =========================
@@ -2304,82 +2889,64 @@ document.body.style.overflow="";
 
 
 /* =========================
-   BEFORE / AFTER
+   BEFORE / AFTER - MOBILE SAFE
 ========================= */
 
-const beforeAfter=
-document.querySelector(".before-after");
+const beforeAfter = document.querySelector(".before-after");
 
 if(beforeAfter){
 
-let isDragging=false;
+    const after = beforeAfter.querySelector(".after-image");
+    const line = beforeAfter.querySelector(".before-after-line");
+    const button = beforeAfter.querySelector(".before-after-button");
 
-const after=
-beforeAfter.querySelector(".after-image");
+    let dragging = false;
 
-const line=
-beforeAfter.querySelector(".before-after-line");
+    function updateBeforeAfter(clientX){
 
-const button=
-beforeAfter.querySelector(".before-after-button");
+        const rect = beforeAfter.getBoundingClientRect();
 
+        let percent =
+            ((rect.right - clientX) / rect.width) * 100;
 
-function updateSlider(clientX){
+        percent = Math.max(5, Math.min(95, percent));
 
-const rect=
-beforeAfter.getBoundingClientRect();
+        after.style.width = percent + "%";
+        line.style.right = percent + "%";
+        button.style.right = percent + "%";
+    }
 
-let x=
-clientX-rect.left;
+    beforeAfter.addEventListener("pointerdown", function(e){
 
-x=Math.max(0,Math.min(x,rect.width));
+        dragging = true;
 
-let percent=
-(x/rect.width)*100;
+        try{
+            beforeAfter.setPointerCapture(e.pointerId);
+        }catch(error){}
 
-after.style.width=(100-percent)+"%";
+        updateBeforeAfter(e.clientX);
 
-line.style.right=percent+"%";
+    });
 
-button.style.right=percent+"%";
+    beforeAfter.addEventListener("pointermove", function(e){
 
-}
+        if(!dragging) return;
 
+        updateBeforeAfter(e.clientX);
 
-beforeAfter.addEventListener("pointerdown",function(e){
+    });
 
-isDragging=true;
+    beforeAfter.addEventListener("pointerup", function(){
 
-beforeAfter.setPointerCapture(e.pointerId);
+        dragging = false;
 
-updateSlider(e.clientX);
+    });
 
-});
+    beforeAfter.addEventListener("pointercancel", function(){
 
+        dragging = false;
 
-beforeAfter.addEventListener("pointermove",function(e){
-
-if(isDragging){
-
-updateSlider(e.clientX);
-
-}
-
-});
-
-
-beforeAfter.addEventListener("pointerup",function(){
-
-isDragging=false;
-
-});
-
-
-beforeAfter.addEventListener("pointercancel",function(){
-
-isDragging=false;
-
-});
+    });
 
 }
 
