@@ -1,5 +1,11 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
   getFirestore,
   collection,
   addDoc,
@@ -22,6 +28,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 
 export {
@@ -33,5 +40,8 @@ export {
   doc,
   query,
   orderBy,
- serverTimestamp
+  serverTimestamp,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
 };

@@ -1,123 +1,178 @@
 import {
-db,
-collection,
-getDocs,
-updateDoc,
-deleteDoc,
-doc,
-query,
-orderBy,
-serverTimestamp
+  auth,
+  db,
+  collection,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+  doc,
+  query,
+  orderBy,
+  serverTimestamp,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut
 } from "./firebase.js";
-const container = document.getElementById("questions");
-console.log(container);
-const container = document.getElementById("questions");
-console.log("admin.js loaded");
+
+const loginForm = document.getElementById("adminLoginForm");
+const loginPanel = document.getElementById("adminLoginPanel");
+const adminPanel = document.getElementById("adminPanel");
+const questionsContainer = document.getElementById("questions");
+const loginStatus = document.getElementById("adminStatus");
+const panelStatus = document.getElementById("adminStatusPanel");
+const logoutButton = document.getElementById("adminLogout");
+
+function setStatus(message, error = false) {
+  for (const status of [loginStatus, panelStatus]) {
+    if (!status) continue;
+    status.textContent = message;
+    status.classList.toggle("is-error", error);
+  }
+}
+
+function makeButton(label, className, onClick) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = className;
+  button.textContent = label;
+  button.addEventListener("click", onClick);
+  return button;
+}
+
+function formatDate(value) {
+  if (!value || typeof value.toDate !== "function") return "";
+  return value.toDate().toLocaleString("fa-IR");
+}
 
 async function loadQuestions() {
+  if (!questionsContainer) return;
+  questionsContainer.replaceChildren();
+  setStatus("در حال دریافت سوال‌ها…");
 
-const q = query(
-collection(db,"faq"),
-orderBy("createdAt","desc")
-);
+  const questionsQuery = query(
+    collection(db, "faq"),
+    orderBy("createdAt", "desc")
+  );
+  const snapshot = await getDocs(questionsQuery);
 
-const snapshot = await getDocs(q);
-console.log(snapshot.size);
-container.innerHTML = "";
+  if (snapshot.empty) {
+    setStatus("سوالی ثبت نشده است.");
+    return;
+  }
 
-snapshot.forEach(item=>{
+  for (const questionDoc of snapshot.docs) {
+    const data = questionDoc.data();
+    const card = document.createElement("article");
+    card.className = "item";
 
-const data = item.data();
+    const questionTitle = document.createElement("h2");
+    questionTitle.textContent = data.question || "(بدون متن)";
 
-const div = document.createElement("div");
+    const meta = document.createElement("p");
+    meta.className = "meta";
+    const date = formatDate(data.createdAt);
+    meta.textContent = `نام: ${data.name || "بدون نام"}${date ? ` | ${date}` : ""}`;
 
-div.className = "item";
+    const answer = document.createElement("textarea");
+    answer.id = `answer-${questionDoc.id}`;
+    answer.placeholder = "پاسخ را بنویسید…";
+    answer.value = data.answer || "";
+    answer.setAttribute("aria-label", "پاسخ سوال");
 
-div.innerHTML = `
+    const actions = document.createElement("div");
+    actions.className = "actions";
 
-<h3>${data.question}</h3>
+    const approveButton = makeButton(
+      data.approved ? "تایید شده" : "تایید سوال",
+      "approve",
+      async () => {
+        try {
+          await updateDoc(doc(db, "faq", questionDoc.id), { approved: true });
+          setStatus("سوال تایید شد.");
+          await loadQuestions();
+        } catch (error) {
+          console.error("Could not approve question:", error);
+          setStatus("اجازهٔ تغییر این سوال را ندارید یا اتصال برقرار نیست.", true);
+        }
+      }
+    );
 
-<div class="meta">
+    const saveButton = makeButton("ثبت پاسخ", "answer-button", async () => {
+      try {
+        await updateDoc(doc(db, "faq", questionDoc.id), {
+          answer: answer.value,
+          answeredAt: serverTimestamp()
+        });
+        setStatus("پاسخ ثبت شد.");
+      } catch (error) {
+        console.error("Could not save answer:", error);
+        setStatus("اجازهٔ ثبت پاسخ را ندارید یا اتصال برقرار نیست.", true);
+      }
+    });
 
-👤 ${data.name || "بدون نام"}
+    const deleteButton = makeButton("حذف", "delete", async () => {
+      if (!window.confirm("این سوال حذف شود؟")) return;
+      try {
+        await deleteDoc(doc(db, "faq", questionDoc.id));
+        setStatus("سوال حذف شد.");
+        await loadQuestions();
+      } catch (error) {
+        console.error("Could not delete question:", error);
+        setStatus("اجازهٔ حذف این سوال را ندارید یا اتصال برقرار نیست.", true);
+      }
+    });
 
-<br>
+    actions.append(approveButton, saveButton, deleteButton);
+    card.append(questionTitle, meta, answer, actions);
+    questionsContainer.append(card);
+  }
 
-🕒 ${
-data.createdAt?.toDate().toLocaleString("fa-IR") || ""
+  setStatus(`تعداد سوال‌ها: ${snapshot.size}`);
 }
 
-</div>
+loginForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const email = document.getElementById("adminEmail")?.value.trim();
+  const password = document.getElementById("adminPassword")?.value;
+  const submitButton = loginForm.querySelector('button[type="submit"]');
 
-<textarea id="a${item.id}" placeholder="پاسخ خود را بنویسید...">${data.answer || ""}</textarea>
+  if (submitButton) submitButton.disabled = true;
+  setStatus("در حال ورود…");
 
-<div class="actions">
-
-<button class="approve">
-${data.approved ? "تایید شده" : "تایید سوال"}
-</button>
-
-<button class="answer">
-ثبت پاسخ
-</button>
-
-<button class="delete">
-حذف
-</button>
-
-</div>
-
-`;
-
-const approveBtn = div.querySelector(".approve");
-const answerBtn = div.querySelector(".answer");
-const deleteBtn = div.querySelector(".delete");
-
-approveBtn.onclick = async()=>{
-
-await updateDoc(doc(db,"faq",item.id),{
-
-approved:true
-
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (error) {
+    console.error("Admin sign-in failed:", error);
+    setStatus("ورود انجام نشد. ایمیل، رمز و فعال بودن ورود ایمیلی Firebase را بررسی کنید.", true);
+  } finally {
+    if (submitButton) submitButton.disabled = false;
+  }
 });
 
-loadQuestions();
-console.log("Docs:", snapshot.size);
-};
-
-answerBtn.onclick = async()=>{
-
-const answer =
-document.getElementById("a"+item.id).value;
-
-await updateDoc(doc(db,"faq",item.id),{
-
-answer,
-
-answeredAt:serverTimestamp()
-
+logoutButton?.addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.error("Sign-out failed:", error);
+    setStatus("خروج انجام نشد. دوباره تلاش کنید.", true);
+  }
 });
 
-alert("پاسخ ثبت شد.");
+onAuthStateChanged(auth, async (user) => {
+  if (!user) {
+    if (loginPanel) loginPanel.hidden = false;
+    if (adminPanel) adminPanel.hidden = true;
+    setStatus("برای ورود، حساب مدیر را وارد کنید.");
+    return;
+  }
 
-};
+  if (loginPanel) loginPanel.hidden = true;
+  if (adminPanel) adminPanel.hidden = false;
 
-deleteBtn.onclick = async()=>{
-
-if(confirm("این سوال حذف شود؟")){
-
-await deleteDoc(doc(db,"faq",item.id));
-
-loadQuestions();
-
-}
-
-};
-
-container.appendChild(div);
-
+  try {
+    await loadQuestions();
+  } catch (error) {
+    console.error("Could not load questions:", error);
+    setStatus("دسترسی مدیر در قوانین Firestore تایید نشد یا اتصال Firebase برقرار نیست.", true);
+  }
 });
-
-}
-
-loadQuestions();
