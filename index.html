@@ -48,28 +48,23 @@ as="image"
 href="images/clinic/sepidan-clinic-tehran.jpg"
 fetchpriority="high">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="assets/vendor/js/tailwindcss-3.4.17.js"></script>
 
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link
-href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
-rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/css/vazirmatn.css">
 
 <link
 rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+href="assets/vendor/css/swiper-bundle.min.css">
 
 <link
 rel="stylesheet"
-href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+href="assets/vendor/css/aos-2.3.4.css">
 
 <link rel="stylesheet" href="css/faq.css">
 
 <link
 rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+href="assets/vendor/css/fontawesome-6.5.2.min.css">
 
 
 <style>
@@ -4256,12 +4251,15 @@ class="mx-auto w-12 h-12 rounded-2xl flex items-center justify-center bg-gradien
 <input
 id="faqName"
 type="text"
+maxlength="80"
 placeholder="نام (اختیاری)"
 class="form-input">
 
 <textarea
 id="faqQuestion"
 rows="4"
+maxlength="1000"
+required
 placeholder="سوال خود را بنویسید..."
 class="form-input resize-none"></textarea>
 
@@ -4276,6 +4274,8 @@ type="submit">
 </button>
 
 </form>
+
+<p id="faqStatus" class="faq-status" role="status" aria-live="polite"></p>
 
 </div>
 
@@ -4985,13 +4985,11 @@ class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl">
      SCRIPTS
 ========================================================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="assets/vendor/js/swiper-bundle.min.js"></script>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/vendor/js/aos-2.3.4.js"></script>
 
 <script src="data/posts.js"></script>
-
-<script type="module" src="js/firebase.js"></script>
 
 <script type="module" src="js/faq.js"></script>
 

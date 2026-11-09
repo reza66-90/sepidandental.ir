@@ -1,104 +1,58 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>پنل مدیریت سوالات</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-font-family:Vazirmatn;
-background:#f5f7fb;
-margin:0;
-padding:40px;
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-}
-
-h1{
-text-align:center;
-margin-bottom:30px;
-}
-
-.item{
-background:#fff;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.meta{
-font-size:13px;
-color:#777;
-margin-top:10px;
-}
-
-textarea{
-width:100%;
-height:100px;
-padding:10px;
-margin-top:15px;
-border-radius:10px;
-border:1px solid #ddd;
-font-family:inherit;
-resize:vertical;
-}
-
-.actions{
-margin-top:15px;
-display:flex;
-gap:10px;
-}
-
-button{
-border:none;
-padding:10px 20px;
-border-radius:10px;
-cursor:pointer;
-font-family:inherit;
-}
-
-.approve{
-background:#1e88e5;
-color:white;
-}
-
-.answer{
-background:#2e7d32;
-color:white;
-}
-
-.delete{
-background:#d32f2f;
-color:white;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>پنل مدیریت سوالات | سپیدان</title>
+  <link rel="stylesheet" href="assets/vendor/css/vazirmatn.css">
+  <style>
+    :root { font-family: "Vazirmatn", Tahoma, sans-serif; color: #172b45; background: #f5f7fb; }
+    body { margin: 0; padding: 24px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { text-align: center; margin: 12px 0 24px; }
+    .panel, .item { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 22px; margin-bottom: 18px; box-shadow: 0 5px 18px rgba(15, 35, 60, .06); }
+    .panel { max-width: 440px; margin: 0 auto; }
+    label { display: block; margin: 12px 0 6px; font-weight: 700; }
+    input, textarea { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 10px; font: inherit; }
+    textarea { min-height: 100px; margin-top: 12px; resize: vertical; }
+    button { border: 0; padding: 10px 16px; border-radius: 10px; cursor: pointer; font: inherit; }
+    button:disabled { cursor: wait; opacity: .6; }
+    .login-button { width: 100%; margin-top: 16px; color: #fff; background: #1688e8; }
+    .approve { color: #fff; background: #1688e8; }
+    .answer-button { color: #fff; background: #2e7d32; }
+    .delete { color: #fff; background: #d32f2f; }
+    .meta { color: #64748b; font-size: 14px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .status { min-height: 1.5em; color: #475569; }
+    .status.is-error { color: #b42318; }
+    [hidden] { display: none !important; }
+    @media (max-width: 560px) { body { padding: 14px; } .panel, .item { padding: 16px; } }
+  </style>
 </head>
-
 <body>
+  <main class="container">
+    <h1>مدیریت سوال‌های کاربران</h1>
 
-<div class="container">
+    <section id="adminLoginPanel" class="panel">
+      <form id="adminLoginForm" autocomplete="on">
+        <label for="adminEmail">ایمیل مدیر</label>
+        <input id="adminEmail" type="email" autocomplete="username" required>
+        <label for="adminPassword">رمز عبور</label>
+        <input id="adminPassword" type="password" autocomplete="current-password" required>
+        <button class="login-button" type="submit">ورود</button>
+      </form>
+      <p id="adminStatus" class="status" role="status" aria-live="polite"></p>
+    </section>
 
-<h1>
-مدیریت سوالات کاربران
-</h1>
-
-<div id="questions"></div>
-
-</div>
-
-<script type="module" src="js/admin.js"></script>
-
+    <section id="adminPanel" hidden>
+      <div class="panel">
+        <button id="adminLogout" type="button">خروج</button>
+        <p id="adminStatusPanel" class="status" role="status" aria-live="polite"></p>
+      </div>
+      <div id="questions" aria-live="polite"></div>
+    </section>
+  </main>
+  <script type="module" src="js/admin.js"></script>
 </body>
 </html>
