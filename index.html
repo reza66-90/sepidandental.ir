@@ -22,20 +22,20 @@
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/favicon.png">
 
+<!-- بعد از آپلود فایل‌ها روی سایت، این سه خط خارجی را با نسخه محلی عوض کنید:
+     <script src="js/tailwind.js"></script>
+     <link rel="stylesheet" href="css/swiper-bundle.min.css">
+     <script src="js/swiper-bundle.min.js"></script>  (پایین صفحه) -->
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 <link rel="stylesheet" href="css/faq.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="css/implant-articles.css">
 
 <style>
 :root{--navy:#0B2D5C;--gold:#a3831a;--cream:#f1f7f8}
 html{scroll-behavior:smooth}
-body{font-family:Vazirmatn;background:linear-gradient(135deg,#0b4f8c,#1e81ce,#7cc7ff);overflow-x:hidden}
+@font-face{font-family:Vazirmatn;src:url("fonts/Vazirmatn.woff2") format("woff2");font-weight:100 900;font-display:swap}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:linear-gradient(135deg,#0b4f8c,#1e81ce,#7cc7ff);overflow-x:hidden}
 .glass{background:rgba(255,255,255,.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15)}
 .btn-gold{background:linear-gradient(135deg,#C9A227,#E4C75B);padding:12px 28px;border-radius:14px;font-weight:700;transition:.3s}
 .btn-gold:hover{transform:translateY(-3px)}
@@ -351,19 +351,19 @@ section{scroll-margin-top:100px}
 
 <div class="lg:col-span-2 space-y-4">
 <div class="card p-0 overflow-hidden">
-<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">آیا ایمپلنت درد دارد؟<i class="fa-solid fa-plus"></i></button>
+<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">آیا ایمپلنت درد دارد؟<span class="faq-icon text-xl">+</span></button>
 <div class="faq-content hidden px-5 pb-5 text-gray-600">ایمپلنت با بی‌حسی موضعی انجام می‌شود و درد قابل توجهی ندارد.</div>
 </div>
 <div class="card p-0 overflow-hidden">
-<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">طول عمر لمینت چقدر است؟<i class="fa-solid fa-plus"></i></button>
+<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">طول عمر لمینت چقدر است؟<span class="faq-icon text-xl">+</span></button>
 <div class="faq-content hidden px-5 pb-5 text-gray-600">معمولاً بین ۱۰ تا ۱۵ سال و در صورت مراقبت حتی بیشتر.</div>
 </div>
 <div class="card p-0 overflow-hidden">
-<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">هزینه ایمپلنت چگونه محاسبه می‌شود؟<i class="fa-solid fa-plus"></i></button>
+<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">هزینه ایمپلنت چگونه محاسبه می‌شود؟<span class="faq-icon text-xl">+</span></button>
 <div class="faq-content hidden px-5 pb-5 text-gray-600">به برند ایمپلنت، تعداد واحدها و شرایط استخوان بستگی دارد.</div>
 </div>
 <div class="card p-0 overflow-hidden">
-<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">آیا امکان پرداخت اقساطی وجود دارد؟<i class="fa-solid fa-plus"></i></button>
+<button class="faq-btn w-full flex justify-between items-center p-5 text-right font-bold">آیا امکان پرداخت اقساطی وجود دارد؟<span class="faq-icon text-xl">+</span></button>
 <div class="faq-content hidden px-5 pb-5 text-gray-600">بله، برای برخی خدمات شرایط پرداخت اقساطی فراهم است.</div>
 </div>
 </div>
@@ -456,8 +456,10 @@ section{scroll-margin-top:100px}
 </div>
 </div>
 
-<div>
-<iframe src="https://www.google.com/maps?q=35.7356098,51.4867056&z=17&output=embed" width="100%" height="100%" class="min-h-[520px] rounded-[40px] shadow-2xl" style="border:0;" loading="lazy"></iframe>
+<div class="rounded-[40px] shadow-2xl min-h-[320px] bg-gradient-to-br from-[#0B2D5C] to-[#164B8A] text-white flex flex-col items-center justify-center text-center p-10 gap-6">
+<div class="text-6xl">📍</div>
+<p class="text-lg leading-8">تهران، ضلع جنوب میدان رسالت، ابتدای خیابان شهید مدنی، پلاک ۱۵۰۸، واحد ۱</p>
+<a href="https://maps.google.com/?q=35.7356098,51.4867056" target="_blank" rel="noopener" class="btn-gold text-black">مسیریابی روی نقشه</a>
 </div>
 
 </div>
@@ -485,7 +487,6 @@ section{scroll-margin-top:100px}
 
 <!-- ===== اسکریپت‌ها ===== -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="data/posts.js"></script>
 
 <script>
@@ -499,11 +500,6 @@ document.addEventListener("DOMContentLoaded", function(){
       autoplay:{delay:4000,disableOnInteraction:false},
       pagination:{el:".swiper-pagination",clickable:true}
     });
-  }
-
-  /* AOS */
-  if(typeof AOS !== "undefined"){
-    AOS.init({duration:1000,once:true});
   }
 
   /* مقالات */
@@ -534,9 +530,9 @@ document.addEventListener("DOMContentLoaded", function(){
   document.querySelectorAll(".faq-btn").forEach(function(btn){
     btn.addEventListener("click", function(){
       const content = btn.nextElementSibling;
-      const icon = btn.querySelector("i");
+      const icon = btn.querySelector(".faq-icon");
       if(content){ content.classList.toggle("hidden"); }
-      if(icon){ icon.classList.toggle("fa-plus"); icon.classList.toggle("fa-minus"); }
+      if(icon && content){ icon.textContent = content.classList.contains("hidden") ? "+" : "−"; }
     });
   });
 
