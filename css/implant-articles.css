@@ -1,0 +1,528 @@
+/* ================================
+   مقالات تصویری سپیدان
+================================ */
+
+.implant-articles-section {
+  background: #f8fafc;
+  padding: 60px 20px;
+  direction: rtl;
+}
+
+.implant-articles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.implant-articles-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0B2D5C;
+  margin-bottom: 10px;
+}
+
+.implant-articles-subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+
+/* اسلایدر */
+
+.implant-articles-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 5px 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.implant-articles-slider::-webkit-scrollbar {
+  height: 7px;
+}
+
+.implant-articles-slider::-webkit-scrollbar-track {
+  background: #e5e7eb;
+  border-radius: 20px;
+}
+
+.implant-articles-slider::-webkit-scrollbar-thumb {
+  background: #0B2D5C;
+  border-radius: 20px;
+}
+
+
+/* کارت */
+
+.implant-article-card {
+  flex: 0 0 270px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: 0.3s ease;
+}
+
+.implant-article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* کادر عکس */
+
+.implant-article-image-box {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  background: #f1f5f9;
+  border-radius: 13px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+/* عکس */
+
+.implant-article-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: 0.3s ease;
+}
+
+.implant-article-image-box:hover img {
+  transform: scale(1.03);
+}
+
+
+/* نوشته روی عکس */
+
+.implant-article-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(11, 45, 92, 0.55);
+
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.implant-article-image-box:hover .implant-article-overlay {
+  opacity: 1;
+}
+
+.implant-article-overlay span {
+  background: #ffffff;
+  color: #0B2D5C;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+
+/* عنوان */
+
+.implant-article-card h3 {
+  color: #0B2D5C;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+  margin: 14px 5px 5px;
+  line-height: 1.8;
+}
+
+
+/* ================================
+   نمایش بزرگ
+================================ */
+
+.implant-article-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  z-index: 99999;
+
+  cursor: zoom-out;
+}
+
+.implant-article-modal.active {
+  display: flex;
+}
+
+
+/* عکس بزرگ */
+
+.implant-article-modal img {
+  max-width: 95vw;
+  max-height: 92vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 10px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  cursor: default;
+}
+
+
+/* دکمه بستن */
+
+.implant-article-close {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #0B2D5C;
+
+  font-size: 32px;
+  font-weight: 900;
+
+  line-height: 40px;
+
+  cursor: pointer;
+
+  z-index: 100000;
+}
+
+
+/* موبایل */
+
+@media (max-width: 768px) {
+
+  .implant-articles-section {
+    padding: 45px 12px;
+  }
+
+  .implant-articles-title {
+    font-size: 25px;
+  }
+
+  .implant-article-card {
+    flex: 0 0 220px;
+  }
+
+  .implant-article-image-box {
+    height: 280px;
+  }
+
+  .implant-article-card h3 {
+    font-size: 14px;
+  }
+
+  .implant-article-modal {
+    padding: 12px;
+  }
+
+  .implant-article-modal img {
+    max-width: 96vw;
+    max-height: 90vh;
+  }
+
+  .implant-article-close {
+    top: 10px;
+    right: 10px;
+  }
+
+}
+/* =========================
+   اسلایدر ایمپلنت
+========================= */
+
+.implant-slider-box {
+  width: 100%;
+  max-width: 650px;
+  height: 650px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.10);
+  overflow: hidden;
+}
+
+.implantSwiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.implantSwiper .swiper-slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #f8fafc;
+  padding: 40px 70px;
+  box-sizing: border-box;
+}
+
+/* خود عکس */
+.implantSwiper .swiper-slide .implant-slide-image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in;
+}
+
+/* =========================
+   فلش های اسلایدر
+========================= */
+
+.implantSwiper .implant-next,
+.implantSwiper .implant-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  width: 42px !important;
+  height: 42px !important;
+  
+  margin: 0 !important;
+  border-radius: 50%;
+  
+  background: rgba(11,45,92,.95);
+  
+  z-index: 20;
+}
+
+.implantSwiper .implant-prev {
+  left: 15px !important;
+  right: auto !important;
+}
+
+.implantSwiper .implant-next {
+  right: 15px !important;
+  left: auto !important;
+}
+
+.implantSwiper .implant-next::after,
+.implantSwiper .implant-prev::after {
+  font-size: 18px !important;
+  font-weight: 900;
+  color: #fff;
+}
+
+/* =========================
+   نقطه ها
+========================= */
+
+.implantSwiper .implant-pagination {
+  bottom: 10px !important;
+  z-index: 20;
+}
+
+.implantSwiper .implant-pagination .swiper-pagination-bullet {
+  background: #0B2D5C;
+  opacity: .6;
+}
+
+.implantSwiper .implant-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+
+/* =========================
+   موبایل
+========================= */
+
+@media (max-width: 768px) {
+
+  .implant-slider-box {
+    max-width: 95%;
+    height: 520px;
+    padding: 8px;
+  }
+
+  .implantSwiper .swiper-slide {
+    padding: 30px 50px;
+  }
+
+  .implantSwiper .implant-prev {
+    left: 8px !important;
+  }
+
+  .implantSwiper .implant-next {
+    right: 8px !important;
+  }
+
+  .implantSwiper .implant-next,
+  .implantSwiper .implant-prev {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .implantSwiper .implant-next::after,
+  .implantSwiper .implant-prev::after {
+    font-size: 16px !important;
+  }
+}
+/* =========================
+   لایت باکس
+========================= */
+
+.implant-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.90);
+  z-index: 99999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+}
+
+.implant-lightbox.active {
+  display: flex;
+}
+
+#implantLightboxImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+
+/* دکمه بستن */
+
+.implant-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: white;
+  color: #0B2D5C;
+
+  font-size: 32px;
+  line-height: 40px;
+
+  cursor: pointer;
+  z-index: 100001;
+}
+
+
+/* فلش های لایت باکس */
+
+.implant-lightbox-prev,
+.implant-lightbox-next {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 50px;
+  height: 50px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.9);
+  color: #0B2D5C;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  z-index: 100001;
+}
+
+.implant-lightbox-prev {
+  left: 25px;
+}
+
+.implant-lightbox-next {
+  right: 25px;
+}
+
+
+/* موبایل */
+
+@media (max-width: 768px) {
+
+  .implant-slider-box {
+    max-width: 95%;
+    height: 520px;
+    padding: 8px;
+  }
+
+  .implant-lightbox {
+    padding: 15px;
+  }
+
+  #implantLightboxImage {
+    max-width: 95vw;
+    max-height: 85vh;
+  }
+
+  .implant-lightbox-prev,
+  .implant-lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .implant-lightbox-prev {
+    left: 10px;
+  }
+
+  .implant-lightbox-next {
+    right: 10px;
+  }
+
+  .implant-close {
+    top: 10px;
+    right: 10px;
+  }
+
+}
