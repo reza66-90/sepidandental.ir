@@ -287,6 +287,8 @@ section{
 خدمات
 </a>
 
+<a href="#insurance">بیمه‌ها</a>
+
 <a href="#blog">
 مقالات
 </a>
@@ -334,6 +336,7 @@ class="hidden md:hidden absolute top-full right-0 w-full bg-white shadow-xl p-6"
 خدمات
 </a>
 
+<a class="block py-3 border-b" href="#insurance">بیمه‌ها</a>
 
 <a class="block py-3 border-b" href="#doctors">
 پزشکان
@@ -860,14 +863,13 @@ alt="دندانپزشکی سپیدان">
           </div>
 
           <!-- اسلاید 10 -->
-          <div class="swiper-slide">
-            <img
-               <img
-        src="images/implant/implant-10.png"
-        alt="مقاله ایمپلنت"
-        class="implant-slide-image"
-        onclick="openImplantLightbox(0)"
-          </div>
+       <div class="swiper-slide">
+  <img
+    src="images/implant/implant-10.png"
+    alt="مقاله ایمپلنت"
+    class="implant-slide-image"
+    onclick="openImplantLightbox(9)">
+</div>
 
           <!-- اسلاید 11 -->
           <div class="swiper-slide">
@@ -1176,40 +1178,17 @@ alt="دکتر ناصری">
 <div class="card text-center">
 
 <img
-src="images/clinic/dr-salimzadeh-dentist-tehran.jpg"
+src="images/clinic/dr-tayyebi-dentist-tehran.jpg"
 class="w-full h-72 object-cover rounded-xl mb-5"
-alt="دکتر سلیم زاده">
+alt="دکتر طیبی">
 
 
 <h3 class="font-black text-xl">
-خانم دکتر سلیم زاده
+آقای دکتر کامیار طیبی
 </h3>
 
 <p class="text-gray-500 mt-2">
-متخصص دندانپزشکی
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="card text-center">
-
-<img
-src="https://images.unsplash.com/photo-1594824476967-48c8b964273f"
-class="w-full h-72 object-cover rounded-xl mb-5"
-alt="پزشک سوم">
-
-
-<h3 class="font-black text-xl">
-خانم دکتر رمضانی
-</h3>
-
-<p class="text-gray-500 mt-2">
-متخصص دندانپزشکی
+متخصص دندانپزشکی اطفال
 </p>
 
 
@@ -1566,7 +1545,65 @@ class="w-full border rounded-xl p-3">
 
 </section>
 
+<!-- =========================
+     بیمه‌های طرف قرارداد
+========================= -->
 
+<section class="py-24 bg-slate-50" id="insurance">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <h2 class="section-title text-center mb-6">
+      بیمه‌های طرف قرارداد
+    </h2>
+
+    <p class="text-center text-gray-600 mb-14 text-lg">
+      خدمات ما با بیمه‌های زیر قابل ارائه است
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+      <div class="card flex flex-col items-center justify-center text-center">
+        <img
+          src="images/insurance-bank-sepah.png"
+          alt="بیمه بانک سپه "
+          class="h-20 w-full object-contain mb-4"
+          loading="lazy">
+        <h3 class="font-bold"> بیمه بانک سپه</h3>
+      </div>
+
+      <div class="card flex flex-col items-center justify-center text-center">
+        <img
+          src="images/insurance-iran.png"
+          alt="بیمه ایران"
+          class="h-20 w-full object-contain mb-4"
+          loading="lazy">
+        <h3 class="font-bold"> بیمه ایران</h3>
+      </div>
+
+      <div class="card flex flex-col items-center justify-center text-center">
+        <img
+          src="images/insurance-sarmad.png"
+          alt="بیمه سرمد"
+          class="h-20 w-full object-contain mb-4"
+          loading="lazy">
+        <h3 class="font-bold"> بیمه سرمد</h3>
+      </div>
+
+      <div class="card flex flex-col items-center justify-center text-center">
+        <img
+          src="images/insurance-mellat.png"
+          alt="بیمه ملت"
+          class="h-20 w-full object-contain mb-4"
+          loading="lazy">
+        <h3 class="font-bold">بیمه ملت</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 <section class="py-24 bg-white" id="contact">
 
   <div class="max-w-7xl mx-auto px-6">
@@ -1714,9 +1751,7 @@ class="w-full border rounded-xl p-3">
 
 <script src="data/posts.js"></script>
 
-<script type="module" src="js/firebase.js"></script>
 
-<script type="module" src="js/faq.js"></script>
 
 
 <script>
@@ -1974,42 +2009,16 @@ modal.classList.add("hidden");
    واتساپ
 ===================== */
 
-
 function sendToWhatsApp(e){
+  e.preventDefault();
 
+  const name  = document.querySelector('input[name="name"]').value;
+  const phone = document.querySelector('input[name="phone"]').value;
 
-e.preventDefault();
+  const text = `📥 درخواست جدید\n\n👤 نام: ${name}\n\n📞 تلفن: ${phone}`;
 
-
-
-const name=document.querySelector(
-'input[name="سپیدان"]'
-).value;
-
-
-
-const phone=document.querySelector(
-'input[name="989127933934"]'
-).value;
-
-
-
-const text=`📥 درخواست جدید
-
-👤 نام: ${سپیدان}
-
-📞 تلفن: ${989127933934}`;
-
-
-
-const url=
-`https://wa.me/989127933934?text=${encodeURIComponent(text)}`;
-
-
-
-window.open(url,"_blank");
-
-
+  const url = `https://wa.me/989127933934?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
 }
 
 
